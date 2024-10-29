@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<head>
+	        <meta charset="utf-8">
+	        <title>Timeline</title>
+	        <link href="styles/style.css" rel="stylesheet" type="text/css" />
+	    </head>
+	</head>
+	<body>
+		<div id="main">
+			<div style="background-color:white"> WORK IN PROGRESS </div>
+			<div id="timeline">
+		</div>
+	</body>
+	<script>
+		var array = [
+			{date:'Nov 13 1982', event:'Birth of Spitfire'},
+			{date:'Dec 17 2017', event:'Birth of Concorde'},
+			{date:'2031', event:'Concorde comes out as non-binary'},
+			{date:'2034', event:'Concorde graduate from Grammar School'},
+			{date:'2038', event:'Concorde graduate from Canterlot University'},
+			{date:'Dec 6 2038', event:'Concorde is selected to EASA Astronaut Group 42'},
+			{date:'2044', event:'Stardust 21 training begins'},
+			{date:'Apr 2045', event:'Stardust 21 launch'},
+			{date:'2010', event:'Princess Luna reapears'},
+			{date:'1961', event:'First manned orbit'},
+			{date:'1969', event:'First Moon landing'},
+			{date:'1991', event:'Sylvanian space agency Maor is founded'},
+			{date:'1986', event:'Salaam Space Station has finished its assembly'},
+		];
+
+		(function(){
+		  if (typeof Object.defineProperty === 'function'){
+			try{Object.defineProperty(Array.prototype,'sortBy',{value:sb}); }catch(e){}
+		  }
+		  if (!Array.prototype.sortBy) Array.prototype.sortBy = sb;
+
+		  function sb(f){
+			for (var i=this.length;i;){
+			  var o = this[--i];
+			  this[i] = [].concat(f.call(o,o,i),o);
+			}
+			this.sort(function(a,b){
+			  for (var i=0,len=a.length;i<len;++i){
+				if (a[i]!=b[i]) return a[i]<b[i]?-1:1;
+			  }
+			  return 0;
+			});
+			for (var i=this.length;i;){
+			  this[--i]=this[i][this[i].length-1];
+			}
+			return this;
+		  }
+		})();
+
+		var sorted_array = Array.from(array)
+		console.log(sorted_array.sortBy(function(o){ return new Date( o.date ) }));
+
+		var output = '';
+		var offset = 5;
+		var timeline = document.getElementById("timeline");
+		var timeline_pos = timeline.getBoundingClientRect().left + timeline.offsetWidth/2;
+		timeline.style.height = sorted_array.length * 100;
+		for (i = 0; i < sorted_array.length; i++) {
+			const entry_div = document.createElement("div");
+
+			const event_container = document.createElement("div");
+			event_container.className = "event";
+			//div.style = "background-color:cyan; position:relative; width: 350px; height:50px; top:0px; left:0px;";
+
+			const content = document.createElement("a");
+			content.innerText = sorted_array[i].date + " - " + sorted_array[i].event;
+
+			entry_div.appendChild(event_container);
+			event_container.appendChild(content);
+			timeline.appendChild(entry_div);
+
+			if (isOdd(i)) {
+				move(event_container, "x", -event_container.offsetWidth - offset);
+				const arrow = document.createElement("i");
+				arrow.className = "arrow right";
+				//entry_div.appendChild(arrow);
+			}
+			else {
+				move(event_container, "x", timeline.offsetWidth + offset);
+				const arrow = document.createElement("i");
+				arrow.className = "arrow left";
+				//entry_div.appendChild(arrow);
+			}
+			move(event_container, "y", 50*i);
+		}
+
+		// Moving stuff around
+		function move(element, axis, distance=20) {
+			var direction = "";
+			if (axis == "x") { direction = "left"; } else if (axis == "y") { direction = "top"; }
+
+			var element_style = window.getComputedStyle(element);
+			var value = element_style.getPropertyValue(direction).replace("px", "");
+
+			element.style[direction] = (Number(value) + distance) + "px";
+		}
+
+		function isOdd(num) { return num % 2;}
+	</script>
+</html>
