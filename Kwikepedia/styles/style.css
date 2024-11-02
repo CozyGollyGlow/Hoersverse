@@ -91,3 +91,13 @@ th, td {
 table td:last-child {
     width: 99%;
 }
+
+h1, h2, h3 {
+    border-bottom: 1px solid black;
+    padding-bottom:3px;
+    margin-bottom: 10px;
+}
+
+#site_sub {
+    font-size: 16px;
+}
