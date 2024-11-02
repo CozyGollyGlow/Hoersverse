@@ -1,5 +1,5 @@
-body {
-
+html, body {
+    font-family: sans-serif;
 }
 
 .main_div {
@@ -65,13 +65,14 @@ th, td {
 }
 
 .center_table {
-    font-size: 18px;
+    font-size: 16px;
     /*border: 1px solid;*/
     margin: 0px 50px 0px 50px;
     display: flex;
 }
 
 .side_table {
+    font-size: 14px;
     float:right;
     text-align: center;
     max-width: 300px;
@@ -81,7 +82,7 @@ th, td {
 
 .side_list {
     font-weight: normal;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .side_title {
@@ -93,11 +94,13 @@ table td:last-child {
 }
 
 h1, h2, h3 {
+    font-family: serif;
     border-bottom: 1px solid black;
-    padding-bottom:3px;
+    padding-top: 12px;
+    padding-bottom: 4px;
     margin-bottom: 10px;
 }
 
 #site_sub {
-    font-size: 16px;
+    font-size: 14px;
 }
