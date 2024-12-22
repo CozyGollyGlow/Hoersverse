@@ -1,0 +1,51 @@
+/* styles.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('your-background-image.jpg'); /* Replace with your image */
+  background-attachment: fixed; /* Keeps the background fixed */
+  background-size: cover;
+  background-position: center;
+}
+
+.side-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.side-panel.left {
+  left: 0;
+}
+
+.side-panel.right {
+  right: 0;
+}
+
+.main-content {
+  margin: 0 220px; /* Leave space for side panels */
+  padding: 20px;
+  color: #333;
+}
+
+.content-block {
+  background: white;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevents any overflowing content */
+}
+
+.content-block img {
+  width: 100%; /* Makes the image fit the block horizontally */
+  height: auto; /* Maintains the aspect ratio */
+  display: block; /* Removes inline spacing below the image */
+}
