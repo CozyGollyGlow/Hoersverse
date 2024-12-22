@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stardust All-in-One</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link id="stylesheet" rel="stylesheet" href="styles/desktop.css">
 </head>
 <body>
     <div class="side-panel left">
@@ -94,4 +94,13 @@
         <div class="content-block"><img src="assets/pages/stardust_page_38.jpg" /></div>
     </div>
 </body>
+<script>
+    // Detect mobile devices using user agent
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // Switch to mobile stylesheet
+      document.getElementById('stylesheet').setAttribute('href', 'styles/mobile.css');
+    }
+  </script>
 </html>
