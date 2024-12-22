@@ -63,31 +63,34 @@
 		timeline.style.height = sorted_array.length * 100;
 		for (i = 0; i < sorted_array.length; i++) {
 			const entry_div = document.createElement("div");
+			entry_div.className = "entry";
+			timeline.appendChild(entry_div);
 
 			const event_container = document.createElement("div");
 			event_container.className = "event";
-			//div.style = "background-color:cyan; position:relative; width: 350px; height:50px; top:0px; left:0px;";
-
-			const content = document.createElement("a");
-			content.innerText = sorted_array[i].date + " - " + sorted_array[i].event;
-
 			entry_div.appendChild(event_container);
-			event_container.appendChild(content);
-			timeline.appendChild(entry_div);
+
+			const event_content_div = document.createElement("span");
+			event_content_div.innerText = sorted_array[i].date + " - " + sorted_array[i].event;
+			event_content_div.className = "event_content";
+
+			const arrow_div = document.createElement("span");
+			arrow_div.className = "arrow";
 
 			if (isOdd(i)) {
 				move(event_container, "x", -event_container.offsetWidth - offset);
-				const arrow = document.createElement("i");
-				arrow.className = "arrow right";
-				//entry_div.appendChild(arrow);
+				event_container.appendChild(event_content_div);
+				arrow_div.innerText = ">>>"
+				event_container.appendChild(arrow_div)
 			}
 			else {
 				move(event_container, "x", timeline.offsetWidth + offset);
-				const arrow = document.createElement("i");
-				arrow.className = "arrow left";
-				//entry_div.appendChild(arrow);
+				event_container.appendChild(arrow_div)
+				arrow_div.innerText = "<<<"
+				event_container.appendChild(event_content_div);
 			}
-			move(event_container, "y", 50*i);
+			// Move half the size of parent so that it sits in the center
+			move(event_container, "y", entry_div.offsetHeight/4)
 		}
 
 		// Moving stuff around

@@ -26,26 +26,33 @@ body  {
     margin: auto;
 }
 
+.entry {
+    height:100px;
+}
+
 .event {
-    display: grid;
-    align-items: center;
-    border-radius: 25px;
-    border: 2px solid #5392DB;
-    background-color: #E8F1FF;
+    display: inline-block;
     position:relative;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 350px;
+    width:500px;
     height:50px;
-    top:0px;
-    left:0px;
+}
+
+.event_content {
+    display: inline-block;
+    border-radius: 25px;
+    box-shadow:0px 0px 0px 2px #5392DB inset;
+    background-color: #E8F1FF;
+    height:100%;
+    width: 100%;
+    /* padding-left: 5px; */
+    align-content: center;
 }
 
 .arrow {
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
+  /* display: inline-block; */
+  color: white;
+  width: 14%;
+  height:100%;
 }
 
 .right {
