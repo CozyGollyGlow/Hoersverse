@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url('your-background-image.jpg'); /* Replace with your image */
+  background-image: url('../assets/gradient.png'); /* Replace with your image */
   background-attachment: fixed; /* Keeps the background fixed */
   background-size: cover;
   background-position: center;
@@ -12,7 +12,7 @@ body {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 200px;
+  width: 300px;
   background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
   color: white;
   display: flex;
@@ -30,9 +30,19 @@ body {
 }
 
 .main-content {
-  margin: 0 220px; /* Leave space for side panels */
+  margin: 0 320px; /* Leave space for side panels */
   padding: 20px;
-  color: #333;
+  color: white;
+  text-align: center;
+}
+
+.title-block {
+  background: #010619;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevents any overflowing content */
 }
 
 .content-block {
@@ -48,4 +58,5 @@ body {
   width: 100%; /* Makes the image fit the block horizontally */
   height: auto; /* Maintains the aspect ratio */
   display: block; /* Removes inline spacing below the image */
+  border-radius: 8px;
 }
