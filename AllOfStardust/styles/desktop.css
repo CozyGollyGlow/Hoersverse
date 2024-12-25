@@ -12,7 +12,7 @@ body {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 300px;
+  width: 15%;
   background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
   color: white;
   display: flex;
@@ -30,8 +30,8 @@ body {
 }
 
 .main-content {
-  margin: 0 320px; /* Leave space for side panels */
-  padding: 75px;
+  margin: 0% 25%; /* Leave space for side panels */
+  padding: 0px;
   color: white;
   text-align: center;
 }
@@ -47,8 +47,8 @@ body {
 
 .content-block {
   background: white;
-  margin: 20px 0;
-  padding: 20px;
+  margin: 2% 0%;
+  padding: 2%;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden; /* Prevents any overflowing content */
