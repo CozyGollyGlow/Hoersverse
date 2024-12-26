@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stardust All-in-One</title>
+    <link id="stylesheet" rel="stylesheet" href="styles/desktop.css">
+</head>
+<body>
+    <div class="side-panel left">
+        <p></p>
+    </div>
+    <div class="side-panel right">
+        <p></p>
+    </div>
+    <div class="main-content">
+        <div class="title-block"><img src="assets/firestarter_logo.png" /></div>
+        <p>A comic by CaptainHoers</p>
+        <!-- Page 1 -->
+        <div class="content-block">
+            <img src="assets/pages/p1p1.png" />
+            <img src="assets/pages/p1p2.png" />
+            <img src="assets/pages/p1p3.png" />
+            <img src="assets/pages/p1p4.png" />
+            <img src="assets/pages/p1p5.png" />
+            <img src="assets/pages/p1p6.png" />
+        </div>
+        <!-- Page 2 -->
+        <div class="content-block">
+            <img src="assets/pages/p2p1.png" />
+            <img src="assets/pages/p2p2.png" />
+            <img src="assets/pages/p2p3.png" />
+            <img src="assets/pages/p2p4.png" />
+            <img src="assets/pages/p2p5.png" />
+            <img src="assets/pages/p2p6.png" />
+        </div>
+        <!-- Page 3 -->
+        <div class="content-block">
+            <img src="assets/pages/p3p1.png" />
+            <img src="assets/pages/p3p2.png" />
+            <img src="assets/pages/p3p3.png" />
+            <img src="assets/pages/p3p4.png" />
+            <img src="assets/pages/p3p5.png" />
+            <img src="assets/pages/p3p6.png" />
+            <img src="assets/pages/p3p7.png" />
+            <img src="assets/pages/p3p8.png" />
+        </div>
+        <!-- Page 4 -->
+        <div class="content-block">
+            <img src="assets/pages/p4p1.png" />
+            <img src="assets/pages/p4p2.png" />
+            <img src="assets/pages/p4p3.png" />
+            <img src="assets/pages/p4p4.png" />
+            <img src="assets/pages/p4p5.png" />
+            <img src="assets/pages/p4p6.png" />
+            <img src="assets/pages/p4p7.png" />
+            <img src="assets/pages/p4p8.png" />
+            <img src="assets/pages/p4p9.png" />
+        </div>
+    </div>
+</body>
+<script>
+    // Detect mobile devices using user agent
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        console.log("User detected as mobile, switching to correct CSS.")
+        // Switch to mobile stylesheet
+        document.getElementById('stylesheet').setAttribute('href', 'styles/mobile.css');
+    }
+  </script>
+</html>
