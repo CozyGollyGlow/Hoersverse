@@ -66,3 +66,26 @@ body {
   height: auto; /* Maintains the aspect ratio */
   display: block; /* Removes inline spacing below the image */
 }
+
+.iframe-block {
+  background: white;
+  margin: 2% 0%;
+  padding: 65% 2% 1.5% 2%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevents any overflowing content */
+  position: relative;
+}
+
+.iframe-block iframe {
+  margin: 0.5% 0%;
+  width: 96%; /* Makes the image fit the block horizontally */
+  height: 95%; /* Maintains the aspect ratio */
+  display: block; /* Removes inline spacing below the image */
+  border-radius: 8px;
+  position: absolute;
+  top: 1.5%;
+  left: 2%;
+  bottom: 0;
+  right: 0;
+}
