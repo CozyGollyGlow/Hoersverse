@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunjackers - Vol 3</title>
+    <link id="stylesheet" rel="stylesheet" href="../styles/desktop.css">
+</head>
+<body style="background-image: url('../assets/background_3.png');">
+    <div class="side-panel left">
+        <p></p>
+    </div>
+    <div class="side-panel right">
+        <p></p>
+    </div>
+    <div class="main-content">
+        <div class="title-block"><img src="../assets/sunjackers_logo.png" /></div>
+        <p>A comic by CaptainHoers</p>
+        <h1>Volume 3</h1>
+        <h2>SOON</h2>
+    </div>
+</body>
+<script>
+    // Detect mobile devices using user agent
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        console.log("User detected as mobile, switching to correct CSS.")
+        // Switch to mobile stylesheet
+        document.getElementById('stylesheet').setAttribute('href', 'styles/mobile.css');
+    }
+  </script>
+</html>
