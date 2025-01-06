@@ -86,3 +86,14 @@ body {
   bottom: 0;
   right: 0;
 }
+
+a.button {
+    padding: 0.5%;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: gold;
+    font-weight: bold;
+}
