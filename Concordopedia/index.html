@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concordopedia</title>
+    <link id="stylesheet" rel="stylesheet" href="styles/desktop.css">
+</head>
+<body>
+    <div id="image-container"></div>
+
+    <script>
+        function getRandomImage() {
+            const randomIndex = Math.floor(Math.random() * 120);
+            return `assets/img/concorde_${randomIndex}.webp`;
+        }
+
+        function addRandomImages(numImages) {
+            const container = document.getElementById('image-container');
+
+            for (let i = 0; i < numImages; i++) {
+                const imgElement = document.createElement('img');
+                imgElement.src = getRandomImage();
+                imgElement.alt = 'Random Image';
+                container.appendChild(imgElement);
+            }
+        }
+
+        addRandomImages(119);
+    </script>
+</body>
+</html>
