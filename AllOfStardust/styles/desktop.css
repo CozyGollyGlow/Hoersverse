@@ -16,17 +16,63 @@ body {
   background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
   color: white;
   display: flex;
-  align-items: center;
   justify-content: center;
   text-align: center;
+  transition: transform 0.3s ease-in-out;
 }
 
 .side-panel.left {
   left: 0;
+  transform: translateX(0);
 }
 
 .side-panel.right {
   right: 0;
+  transform: translateX(0);
+}
+
+.side-panel.left.hidden {
+  transform: translateX(-100%);
+}
+
+.side-panel.right.hidden {
+  transform: translateX(100%);
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  width: 30px;
+  height: 250px;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+  transition: background 0.3s, opacity 0.3s;
+  opacity: 0;
+  text-align: center;
+  line-height: 40px; /* Matches button height for vertical centering */
+  border-radius: 25%;
+}
+
+/* Show button when hovering over the panel */
+.side-panel:hover .toggle-btn {
+  opacity: 1;
+}
+
+.toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Positioning the toggle buttons */
+.side-panel.left .toggle-btn {
+  right: -40px;  /* Slightly outside the panel */
+}
+
+.side-panel.right .toggle-btn {
+  left: -40px;  /* Slightly outside the panel */
 }
 
 .main-content {
