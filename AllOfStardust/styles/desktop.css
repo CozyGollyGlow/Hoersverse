@@ -75,9 +75,18 @@ body {
 }
 
 .panel_button {
-    width: 100%;
+    width: 95%;
     font-size: 20px;
     cursor: pointer;
+    background-color: #59b5c4;
+    border: none;
+    border-radius: 5px;
+    margin: 0 0 5px 0;
+    padding: 5px;
+}
+
+.panel_button:hover {
+  background-color: #d2efff;
 }
 
 .panel_slider {
