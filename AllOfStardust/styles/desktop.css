@@ -15,7 +15,6 @@ body {
   width: 15%;
   background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
   color: white;
-  display: flex;
   justify-content: center;
   text-align: center;
   transition: transform 0.3s ease-in-out;
@@ -73,6 +72,12 @@ body {
 
 .side-panel.right .toggle-btn {
   left: -40px;  /* Slightly outside the panel */
+}
+
+.panel_button {
+    width: 100%;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .main-content {
