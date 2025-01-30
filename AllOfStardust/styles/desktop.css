@@ -80,8 +80,12 @@ body {
     cursor: pointer;
 }
 
+.panel_slider {
+    width: 100%;
+}
+
 .main-content {
-  margin: 0% 25%; /* Leave space for side panels */
+  margin: 0% 25%;
   padding: 0px;
   color: white;
   text-align: center;

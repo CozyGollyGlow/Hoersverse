@@ -16,7 +16,8 @@
     </div>
     <div class="side-panel right">
         <h1>Settings</h1>
-
+        <p>Margin: <span id="marginValue">25</span>%</p>
+        <input class="panel_slider" type="range" id="marginSlider" min="10" max="45" value="25">
         <button class="toggle-btn" onclick="togglePanel('right')">❯</button>
     </div>
     <div class="main-content">
@@ -118,5 +119,17 @@
         const panel = document.querySelector(`.side-panel.${side}`);
         panel.classList.toggle("hidden");
     }
+
+    const slider = document.getElementById('marginSlider');
+    const marginValue = document.getElementById('marginValue');
+    const mainContent = document.querySelector('.main-content');
+
+    // Update the margin when the slider value changes
+    slider.addEventListener('input', function() {
+        const value = slider.value;
+        marginValue.textContent = value;  // Update the displayed value
+        mainContent.style.margin = `0% ${value}%`;  // Update the margin of the element
+    });
+
   </script>
 </html>
