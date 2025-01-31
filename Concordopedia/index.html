@@ -7,26 +7,97 @@
     <link id="stylesheet" rel="stylesheet" href="styles/desktop.css">
 </head>
 <body>
+    <div id="title-container">
+        <h1>Concordopedia</h1>
+        <div id="checkbox_div">
+            <label class="checkbox-container">
+                <input type="checkbox" class="checkbox-input" id="firestarter_checkbox">
+                <span class="checkbox-label">Firestarter</span>
+            </label>
+            <label class="checkbox-container">
+                <input type="checkbox" class="checkbox-input" id="sunjackers_checkbox">
+                <span class="checkbox-label">Sunjackers</span>
+            </label>
+            <label class="checkbox-container">
+                <input type="checkbox" class="checkbox-input" id="stardust_checkbox">
+                <span class="checkbox-label">Stardust</span>
+            </label>
+        </div>
+    </div>
     <div id="image-container"></div>
 
     <script>
+        const FIRESTARTER_CONCORDES = 1;
+        const SUNJACKERS_CONCORDES = 5;
+        const STARDUST_CONCORDES = 144;
+
+        let sources = []
+
+        document.getElementById("firestarter_checkbox").addEventListener("change", function() {
+            if(this.checked){
+                sources.push('firestarter');
+            } else {
+                sources = sources.filter(item => item !== 'firestarter');
+            }
+            addRandomImages(50);
+        });
+        document.getElementById("sunjackers_checkbox").addEventListener("change", function() {
+            if(this.checked){
+                sources.push('sunjackers');
+            } else {
+                sources = sources.filter(item => item !== 'sunjackers');
+            }
+            addRandomImages(50);
+        });
+        document.getElementById("stardust_checkbox").addEventListener("change", function() {
+            if(this.checked){
+                sources.push('stardust');
+            } else {
+                sources = sources.filter(item => item !== 'stardust');
+            }
+            addRandomImages(50);
+        });
+
         function getRandomImage() {
-            const randomIndex = Math.floor(Math.random() * 120);
-            return `assets/img/concorde_${randomIndex}.webp`;
-        }
-
-        function addRandomImages(numImages) {
-            const container = document.getElementById('image-container');
-
-            for (let i = 0; i < numImages; i++) {
-                const imgElement = document.createElement('img');
-                imgElement.src = getRandomImage();
-                imgElement.alt = 'Random Image';
-                container.appendChild(imgElement);
+            const random_source = sources[Math.floor(Math.random() * sources.length)];
+            if(random_source === 'firestarter'){
+                return get_random_firestarter_img()
+            }
+            if(random_source === 'sunjackers'){
+                return get_random_sunjackers_img()
+            }
+            if(random_source === 'stardust'){
+                return get_random_stardust_img()
             }
         }
 
-        addRandomImages(119);
+        function get_random_firestarter_img() {
+            const randomIndex = Math.floor(Math.random() * FIRESTARTER_CONCORDES) + 1;
+            return `assets/img/firestarter/concorde_${randomIndex}.webp`;
+        }
+
+        function get_random_sunjackers_img() {
+            const randomIndex = Math.floor(Math.random() * SUNJACKERS_CONCORDES) + 1;
+            return `assets/img/sunjackers/concorde_${randomIndex}.webp`;
+        }
+
+        function get_random_stardust_img() {
+            const randomIndex = Math.floor(Math.random() * STARDUST_CONCORDES) + 1;
+            return `assets/img/stardust/concorde_${randomIndex}.webp`;
+        }
+
+        function addRandomImages(numImages) {
+            document.getElementById("image-container").innerHTML = "";
+            if(sources.length != 0){
+                const container = document.getElementById('image-container');
+
+                for (let i = 0; i < numImages; i++) {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = getRandomImage();
+                    container.appendChild(imgElement);
+                }
+            }
+        }
     </script>
 </body>
 </html>

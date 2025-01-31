@@ -1,6 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -9,7 +8,29 @@ body {
     background-attachment: fixed; /* Keeps the background fixed */
     background-size: cover;
     background-position: center;
+    color: white;
 }
+
+h1 {
+    text-align: center;
+    line-height: 0.5;
+}
+
+#title-container {
+    display: grid;
+    justify-content: center;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+}
+
+#checkbox_div {
+    display: flex;
+    margin-bottom: 25px;
+}
+
 #image-container {
     display: flex;
     flex-wrap: wrap;
@@ -17,6 +38,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 img {
     height: 350px;
     object-fit: contain;
