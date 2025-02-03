@@ -9,16 +9,7 @@ body {
 }
 
 .side-panel {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 0px;
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  display: none;
 }
 
 .side-panel.left {
