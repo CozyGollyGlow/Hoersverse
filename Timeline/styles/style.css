@@ -1,76 +1,32 @@
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
-body  {
-  background-image: url("gradient.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+body {
+  text-align: center;
   height: 100vh;
 }
 
-#main {
-    position: relative;
-    width:100%;
-    height: 100%;
-    overflow: auto;
-}
-
-#timeline {
-    background-color: white;
-    position: absolute;
-    left: 50%;
-    top: 0%;
-    width: 10px;
-    margin: auto;
-}
-
 .entry {
-    height:100px;
+    display: block;
+    border: 2px solid black;
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 5px;
 }
 
-.event {
-    display: inline-block;
-    position:relative;
-    width:500px;
-    height:50px;
+.entry-date {
+    margin: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid black;
 }
 
-.event_content {
-    display: inline-block;
-    border-radius: 25px;
-    box-shadow:0px 0px 0px 2px #5392DB inset;
-    background-color: #E8F1FF;
-    height:100%;
-    width: 100%;
-    /* padding-left: 5px; */
-    align-content: center;
+.entry-content {
+    text-align: center;
 }
 
-.arrow {
-  /* display: inline-block; */
-  color: white;
-  width: 14%;
-  height:100%;
-}
-
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-
-.up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}
-
-.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+.entry-source {
+    margin: 2px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid black;
 }
