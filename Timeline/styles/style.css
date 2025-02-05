@@ -1,15 +1,22 @@
 body {
   text-align: center;
   height: 100vh;
+  background-image: url('../assets/gradient.png');
+  background-attachment: fixed; /* Keeps the background fixed */
+  background-size: cover;
+  background-position: center;
 }
 
 .entry {
     display: block;
-    border: 2px solid black;
+    border: 3px solid #59b5c4;
+    border-radius: 10px;
     height: fit-content;
-    width: fit-content;
+    width: 25%;
     margin: auto;
     margin-bottom: 5px;
+    background-color: #d0f0ff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .entry-date {
@@ -17,16 +24,19 @@ body {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    border: 1px solid black;
+    border: 2px solid #59b5c4;
+    border-radius: 10px;
 }
 
 .entry-content {
     text-align: center;
+    margin: 5px;
 }
 
 .entry-source {
     margin: 2px;
     font-size: 16px;
     text-align: center;
-    border: 1px solid black;
+    border: 2px solid #59b5c4;
+    border-radius: 10px;
 }
