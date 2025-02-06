@@ -5,7 +5,7 @@ html, body {
 .main_div {
     background-color: #efefef;
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: auto;
     align-items: center;
 }
