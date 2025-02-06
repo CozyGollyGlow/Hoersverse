@@ -17,6 +17,11 @@ body {
     margin-bottom: 5px;
     background-color: #d0f0ff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.entry:hover {
+  box-shadow: 0 0 10px white;
 }
 
 .entry-date {
@@ -34,6 +39,11 @@ body {
 }
 
 .entry-source {
+    display: flex;
+}
+
+.entry-source-item {
+    flex: 1;
     margin: 2px;
     font-size: 16px;
     text-align: center;
