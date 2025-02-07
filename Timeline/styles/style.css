@@ -35,6 +35,12 @@ body {
     background-color: #d0f0ff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.selected {
+    box-shadow: 0 0 10px white;
+    border: 3px solid white;
 }
 
 .entry:hover {

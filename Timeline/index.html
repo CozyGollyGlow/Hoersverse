@@ -23,6 +23,7 @@
 	</body>
 	<script>
 		const frame = document.getElementById('content-frame');
+		let selected_entry = null;
 
 		add_entry("1010", "Nightmare Moon crisis. Luna turns into Nightmare Moon and gets banished to the Moon by Celestia.", "Sovereign Objection", "https://www.fimfiction.net/story/533989/1/sovereign-objection/may-11th-2011", "")
 		add_entry("~11th century", "War of the Lost Kingdom. Following the disapearance of the Crystal Empire, Equestrian and gryphon kings fought over the now unclaimed lands.", "Sovereign Objection", "https://www.fimfiction.net/story/533989/2/sovereign-objection/february-25th-2012", "")
@@ -53,10 +54,14 @@
 		function add_entry(date, content, source, link, iframe_link) {
 			const entry_div = document.createElement("div");
 			entry_div.className = "entry";
-			entry_div.onmouseover = function() {
+			entry_div.onclick = function() {
+				if(selected_entry != null){
+					selected_entry.classList.toggle("selected");
+				}
 			    frame.src = iframe_link;
+				selected_entry = entry_div;
+				selected_entry.classList.toggle("selected");
 			};
-
 
 			const entry_date = document.createElement("p");
 			entry_date.className = "entry-date";
