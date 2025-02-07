@@ -23,14 +23,16 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
+#entries {
+    margin: 1%;
+}
+
 .entry {
     display: block;
     border: 3px solid #59b5c4;
     border-radius: 10px;
     height: fit-content;
     width: 25%;
-    margin: auto;
-    margin-left: 1%;
     margin-bottom: 5px;
     background-color: #d0f0ff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
