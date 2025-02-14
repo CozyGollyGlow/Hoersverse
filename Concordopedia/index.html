@@ -22,14 +22,19 @@
                 <input type="checkbox" class="checkbox-input" id="stardust_checkbox">
                 <span class="checkbox-label">Stardust</span>
             </label>
+            <label class="checkbox-container">
+                <input type="checkbox" class="checkbox-input" id="other_checkbox">
+                <span class="checkbox-label">Others</span>
+            </label>
         </div>
     </div>
     <div id="image-container"></div>
 
     <script>
-        const FIRESTARTER_CONCORDES = 21;
-        const SUNJACKERS_CONCORDES = 70;
-        const STARDUST_CONCORDES = 171;
+        const FIRESTARTER_CONCORDES = 21; // From Firestarter comics
+        const SUNJACKERS_CONCORDES = 70; // From Sunjackers comics
+        const STARDUST_CONCORDES = 171; // From Stardust comics
+        const OTHER_CONCORDES = 27; // From other sources (sketch, postcards, etc...)
 
         let sources = []
 
@@ -57,6 +62,14 @@
             }
             addRandomImages(50);
         });
+        document.getElementById("other_checkbox").addEventListener("change", function() {
+            if(this.checked){
+                sources.push('other');
+            } else {
+                sources = sources.filter(item => item !== 'other');
+            }
+            addRandomImages(50);
+        });
 
         function getRandomImage() {
             const random_source = sources[Math.floor(Math.random() * sources.length)];
@@ -68,6 +81,9 @@
             }
             if(random_source === 'stardust'){
                 return get_random_stardust_img()
+            }
+            if(random_source === 'other'){
+                return get_random_other_img()
             }
         }
 
@@ -84,6 +100,11 @@
         function get_random_stardust_img() {
             const randomIndex = Math.floor(Math.random() * STARDUST_CONCORDES) + 1;
             return `assets/img/stardust/concorde_${randomIndex}.webp`;
+        }
+
+        function get_random_other_img() {
+            const randomIndex = Math.floor(Math.random() * OTHER_CONCORDES) + 1;
+            return `assets/img/other/concorde_${randomIndex}.webp`;
         }
 
         function addRandomImages(numImages) {
