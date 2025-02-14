@@ -28,6 +28,18 @@ h1 {
 
 #checkbox_div {
     display: flex;
+    margin-bottom: 5px;
+}
+
+#amount-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#generate-button {
+    margin: auto;
     margin-bottom: 25px;
 }
 

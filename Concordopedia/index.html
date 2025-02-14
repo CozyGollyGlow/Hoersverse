@@ -27,6 +27,8 @@
                 <span class="checkbox-label">Others</span>
             </label>
         </div>
+        <div id="amount-container">Amount to generate:<input id="amount-input" type="number" min="1" max="100" step="1"></div>
+        <button id="generate-button" onclick="addRandomImages()">GENERATE</div>
     </div>
     <div id="image-container"></div>
 
@@ -107,7 +109,9 @@
             return `assets/img/other/concorde_${randomIndex}.webp`;
         }
 
-        function addRandomImages(numImages) {
+        function addRandomImages() {
+            let numImages = document.getElementById("amount-input").value;
+
             document.getElementById("image-container").innerHTML = "";
             if(sources.length != 0){
                 const container = document.getElementById('image-container');
