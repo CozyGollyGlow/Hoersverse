@@ -1,26 +1,94 @@
+html, body {
+    height: 100%;
+    margin: 5px 5px 0px 5px;
+    padding: 0px 0px 10px 0px;
+}
+
 html {
     font-family: sans-serif;
 }
 
 body {
-    height: 100vh;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.main_div {
-    background-color: #efefef;
+h1, h2, h3 {
+    font-family: serif;
+    border-bottom: 1px solid black;
+}
+
+#back-panel {
     height: 100%;
     align-items: center;
+    background-color: #efefef;
+    padding: 0px 50px 0px 50px;
 }
 
-.top_bar {
+#top-panel {
     background-color: #e5e5e5;
-    margin: 0px 50px 0px 50px;
     padding: 10px;
     display: flex;
     align-items: center;
 }
 
-.logo {
+#logo {
+    width: 200px;
+    height: 68px;
+}
+
+#search-input {
+    width: 20%;
+    height: 30px;
+    margin-left: 50px;
+}
+
+#search-button {
+    height: 30px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+#main-content {
+    display: flex;
+    gap: 5%;
+}
+
+#left-panel {
+    width: 15%;
+    min-width: 100px;
+}
+
+#left-panel a {
+    display: block;
+}
+
+#left-panel h3 {
+    margin-top: 36px;
+}
+
+#central-panel {
+    width: 80%;
+}
+
+/* OLDER CSS */
+
+/* .main_div {
+    background-color: #efefef;
+    height: 100%;
+    align-items: center;
+} */
+
+/* .top_bar {
+    background-color: #e5e5e5;
+    margin: 0px 50px 0px 50px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+} */
+
+/* .logo {
     width: 200px;
     height: 68px;
 }
@@ -34,7 +102,7 @@ body {
 .search_button {
     font-weight: bold;
     height: 30px;
-}
+} */
 
 .side_picture {
     padding-left: 20px;
@@ -74,6 +142,7 @@ th, td {
 }
 
 .side_table {
+    margin-top: 70px;
     font-size: 14px;
     float:right;
     text-align: center;
@@ -95,13 +164,13 @@ table td:last-child {
     width: 99%;
 }
 
-h1, h2, h3 {
+/* h1, h2, h3 {
     font-family: serif;
     border-bottom: 1px solid black;
     padding-top: 12px;
     padding-bottom: 4px;
     margin-bottom: 10px;
-}
+} */
 
 #site_sub {
     font-size: 14px;
