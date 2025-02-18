@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Lorem Ipsum - Kwikepedia</title>
+        <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="back-panel"></div>
+        <div id="top-panel">
+            <img id="logo" src="logo.png">
+            <input id="search-input" type="text">
+            <button id="search-button" type="button" name="button">SEARCH</button>
+        </div>
+        <div id="main-content">
+            <div id="left-panel">
+                <h3>Contents</h3>
+                <a href="#">(Top)</a>
+            </div>
+
+            <div id="central-panel">
+                <table id="infobox">
+                    <tr>
+                        <td>
+                            <span style="font-weight: bold; font-size: 24px;">Lorem Ipsum</span>
+                            <img id="infobox-picture" src="https://www.iim.fr/ecole-web/wp-content/uploads/2020/07/lorem_ipsum_origines_explication-1.jpg">
+                            <br>
+                            Lorem Ipsum in 2044
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table style="font-size: 14px;">
+                                <tr><td class="side_title">Born</td> <td>Lorem Ipsum <br> 1 January 2000 (age 25), Dolor</td></tr>
+                                <tr><td class="side_title">Status</td> <td>Active</td></tr>
+                                <tr><td class="side_title">Nationality</td> <td><a href="#">Dolor</a></td></tr>
+                                <tr><td class="side_title">Occupations</td> <td><a href="#">Loremist</a>, <a href="#">Ipsumist</a></td></tr>
+                                <tr><td class="side_title">Selection</td> <td><a href="#">Lorem Ipsum Group 42</a></td></tr>
+                                <tr><td class="side_title">Missions</td> <td><a href="#">Dolor 21</a></td></tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <h1>Lorem Ipsum</h1>
+                <span>From Kwikepedia, the free encyclopedia</span>
+                <p>For other uses, see <a href="#">Lorem Ipsum (disambiguation)</a></p>
+                <p>Lorem Ipsum is a placeholder text commonly used in design and publishing.</p>
+                <h2 class="content-headings">Lorem</h2>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                <h2 class="content-headings">Ipsum</h2>
+                Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.
+                <h2 class="content-headings">Dolor</h2>
+                Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla. Vestibulum lacinia arcu eget nulla.
+                <h2 class="content-headings">Sit Amet</h2>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                <h2 class="content-headings">See also</h2>
+                <li><a href="#">Dolor 21</a></li>
+                <li><a href="#">List of Lorem Ipsum texts</a></li>
+                <h2 class="content-headings">References</h2>
+            </div>
+        </div>
+    </body>
+    <script src="test.js"></script>
+    <script>
+        console.log(window.jsonData);
+
+        // Get all main headings of the page and display then in the left-panel div
+        function get_list_headings(){
+            let i = 0;
+            const left_panel = document.getElementById('left-panel');
+            const headings = document.getElementsByClassName('content-headings');
+
+            // Convert HTMLCollection to an array
+            Array.from(headings).forEach(h => {
+                h.id = "heading-" + i;
+
+                const content_heading = document.createElement("a");
+                content_heading.textContent = h.textContent;
+                content_heading.href = `#${h.id}`;
+                content_heading.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    document.getElementById(h.id).scrollIntoView({ behavior: "smooth" });
+                });
+
+                left_panel.appendChild(content_heading);
+
+                i += 1;
+            });
+        }
+
+        get_list_headings();
+    </script>
+</html>

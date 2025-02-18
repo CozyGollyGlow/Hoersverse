@@ -20,14 +20,20 @@ h1, h2, h3 {
 }
 
 #back-panel {
+    top: 0;
+    left: 0;
+    margin-left: 1%;
+    width: 98%;
     height: 100%;
-    align-items: center;
+    z-index: -1;
+    position: fixed;
     background-color: #efefef;
-    padding: 0 3% 0 3%;
 }
 
 #top-panel {
     background-color: #e5e5e5;
+    margin-left: 5%;
+    margin-right: 5%;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -52,11 +58,13 @@ h1, h2, h3 {
 
 #main-content {
     display: flex;
-    gap: 5%;
 }
 
 #left-panel {
-    width: 15%;
+    position: fixed;
+    margin-left: 5%;
+    top: 98px;
+    width: 10%;
     min-width: 100px;
 }
 
@@ -69,7 +77,8 @@ h1, h2, h3 {
 }
 
 #central-panel {
-    width: 80%;
+    width: 75%;
+    padding-left: 17%;
 }
 
 #infobox {
