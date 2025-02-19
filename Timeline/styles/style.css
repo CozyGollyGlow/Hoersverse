@@ -8,7 +8,7 @@ body {
 }
 
 button {
-    border: 3px solid #59b5c4;
+    border: 3px solid #c7c7c7;
     border-radius: 10px;
     margin: 2px;
     cursor: pointer;
@@ -51,9 +51,9 @@ iframe {
   right: 0;
   width: 71.5%;
   margin: 1%;
-  background-color: #d0f0ff;
+  background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  border: 3px solid #59b5c4;
+  border: 3px solid #c7c7c7;
   border-radius: 10px;
   justify-content: center;
   text-align: center;
@@ -62,29 +62,37 @@ iframe {
 
 #entries {
     margin: 1%;
+    display: grid;
+    gap: 20px;
 }
 
 #entry-settings {
     display: block;
-    border: 3px solid #59b5c4;
+    border: 3px solid #c7c7c7;
     border-radius: 10px;
     height: fit-content;
     width: 25%;
     margin-bottom: 5px;
-    background-color: #d0f0ff;
+    background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .entry {
-    border: 3px solid #59b5c4;
     border-radius: 10px;
     height: fit-content;
     width: 25%;
     margin-bottom: 5px;
-    background-color: #d0f0ff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.2s ease-in-out;
     cursor: pointer;
+}
+
+.entry::after {
+    content: "★";
+    position: absolute;
+    left: 13.25%;
+    font-size: 20px;
+    color: white;
 }
 
 .selected {
@@ -121,6 +129,46 @@ iframe {
     text-align: center;
     border: 2px solid #59b5c4;
     border-radius: 10px;
+}
+
+.stardust {
+    border: 3px solid #59b5c4;
+    background-color: #d0f0ff;
+}
+
+.stardust .entry-source-item, .stardust .entry-date {
+    border: 2px solid #59b5c4;
+    background-color: #d0f0ff;
+}
+
+.firestarter {
+    border: 3px solid #f8b101;
+    background-color: #ffe59d;
+}
+
+.firestarter .entry-source-item, .firestarter .entry-date {
+    border: 2px solid #f8b101;
+    background-color: #ffe59d;
+}
+
+.sovereign-objection {
+    border: 3px solid #8e2bc1;
+    background-color: #d09ceb;
+}
+
+.sovereign-objection .entry-source-item, .sovereign-objection .entry-date {
+    border: 2px solid #8e2bc1;
+    background-color: #d09ceb;
+}
+
+.others {
+    border: 3px solid grey;
+    background-color: #e8e8e8;
+}
+
+.others .entry-source-item, .others .entry-date {
+    border: 2px solid grey;
+    background-color: #e8e8e8;
 }
 
 .hidden {
