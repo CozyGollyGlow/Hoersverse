@@ -14,8 +14,20 @@
 			<div id="entry-settings">
 				<div id="settings-checkboxes" class="hidden">
 					<label class="checkbox-container">
-		                <input type="checkbox" class="checkbox-input" id="stardust_checkbox">
-		                <span class="checkbox-label">TEST</span>
+		                <input type="checkbox" class="checkbox-input" id="historical_checkbox" onclick="toggle_entries('stardust')" checked>
+		                <span class="checkbox-label">Stardust</span>
+		            </label>
+					<label class="checkbox-container">
+		                <input type="checkbox" class="checkbox-input" id="historical_checkbox" onclick="toggle_entries('firestarter')" checked>
+		                <span class="checkbox-label">Firestarter</span>
+		            </label>
+					<label class="checkbox-container">
+		                <input type="checkbox" class="checkbox-input" id="historical_checkbox" onclick="toggle_entries('sovereign_objection')" checked>
+		                <span class="checkbox-label">Sovereign Objection</span>
+		            </label>
+					<label class="checkbox-container">
+		                <input type="checkbox" class="checkbox-input" id="historical_checkbox" onclick="toggle_entries('others')" checked>
+		                <span class="checkbox-label">Others</span>
 		            </label>
 				</div>
 				<button onclick="toggle_settings()" id="settings-button"> OPEN SETTINGS</button>
@@ -74,8 +86,6 @@
 		add_entry("2044", "Beggining of Stardust. The Stardust 21 crew is affected to the mission and begin their training.", "Stardust", "", "../Kwikepedia/stardust_21.html", ["stardust"])
 		add_entry("April 22nd, 2045", "Launch of Stardust 21 mission.", "Stardust", "", "../Kwikepedia/stardust_21.html", ["stardust"])
 
-		console.log(entries_arr);
-
 		function toggle_settings(){
 			if (settings_checkboxes.classList.contains("hidden")){
 				settings_btn.textContent = "CLOSE SETTINGS";
@@ -86,10 +96,21 @@
 			settings_checkboxes.classList.toggle("show");
 		}
 
+		// Toggle entries by their class
+		function toggle_entries(class_name){
+			// I know it would be better to get all entries of a same class at startup, but I find this solution more elegant
+			let elements = document.getElementsByClassName(class_name);
+
+			Array.from(elements).forEach(e => {
+			    e.classList.toggle("hidden-entry");
+			});
+		}
+
 		function add_entry(date, content, source, link, iframe_link, classes = []) {
 			const entry_div = document.createElement("div");
 			//entry_div.className = "entry";
-			entry_div.classList.add("entry", ...classes);
+			//entry_div.classList.add("entry", ...classes);
+			entry_div.classList.add("entry", source.toLowerCase().replace(/\s+/g, '_'));
 			entry_div.onclick = function() {
 				if(selected_entry != null){
 					selected_entry.classList.toggle("selected");
@@ -115,7 +136,7 @@
 			const source_link = document.createElement("a");
 			source_link.className = "entry-source-item";
 			source_link.href = link;
-			source_link.textContent = "LINK";
+			source_link.textContent = "Source";
 			entry_source.appendChild(source_name);
 			entry_source.appendChild(source_link);
 
