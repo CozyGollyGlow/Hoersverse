@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Lorem Ipsum - Kwikepedia</title>
+        <title>Concorde - Kwikepedia</title>
         <link href="styles/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
@@ -20,76 +20,45 @@
                 </div>
 
                 <div id="central-panel">
-                    <table id="infobox">
-                        <tr>
-                            <td>
-                                <span style="font-weight: bold; font-size: 24px;">Concorde</span>
-                                <img id="infobox-picture" src="concorde.png">
-                                <br>
-                                Concorde in 2044
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <table style="font-size: 14px;">
-                                    <tr><td class="side_title">Born</td> <td>Concorde <br> 17 December 2017 (age 27), Equestria</td></tr>
-                                    <tr><td class="side_title">Status</td> <td>Active</td></tr>
-                                    <tr><td class="side_title">Nationality</td> <td><img class="flag_small" src="equestria_flag.png"><a href="equestria.html">Equestria</a></td></tr>
-                                    <tr><td class="side_title">Occupations</td> <td><a href="#">Astronaut</a>, <a href="#">Pilot</a></td></tr>
-                                    <tr><td class="side_title">Selection</td> <td><a href="#">EASA Astronaut Group 42</a></td></tr>
-                                    <tr><td class="side_title">Missions</td> <td><a href="stardust_21.html">Stardust 21</a></td></tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
+                    <div id="infobox">
+                        <p id="infobox-title">Concorde</p>
+                        <img id="infobox-picture" src="concorde.png">
+                        <figcaption>Concorde in 2044</figcaption>
+                        <div class="infobox-divider"></div>
+                        <div class="ib-entry"><span class="entry-title">Born</span><span class="entry-data">17 December 2017 (age 27), Equestria</span></div>
+                        <div class="ib-entry"><span class="entry-title">Status</span><span class="entry-data">Active</span></div>
+                        <div class="ib-entry"><span class="entry-title">Nationality</span><span class="entry-data"><img class="flag_small" src="equestria_flag.png"><a href="equestria.html">Equestria</a></span></div>
+                        <div class="ib-entry"><span class="entry-title">Occupations</span><span class="entry-data"><a href="#">Astronaut</a>, <a href="#">Pilot</a></span></div>
+                        <div class="ib-entry"><span class="entry-title">Selection</span><span class="entry-data"><a href="#">EASA Astronaut Group 42</a></span></div>
+                        <div class="ib-entry"><span class="entry-title">Missions</span><span class="entry-data"><a href="stardust_21.html">Stardust 21</a></span></div>
+                        <div class="infobox-divider"></div>
+                    </div>
+
                     <h1>Concorde (astronaut)</h1>
-                    <span>From Kwikepedia, the free encyclopedia</span>
-                    <p>For other uses, see <a href="#">Concorde (disambiguation)</a></p>
+                    <div id="before">
+                        <span>From Kwikepedia, the free encyclopedia</span>
+                        <span>For other uses, see <a href="#">Concorde (disambiguation)</a></span>
+                    </div>
                     <p>Concorde (born December 17, 2017) is an <a href="#">EASA astronaut</a>.</p>
+
                     <h2 class="content-headings">Background</h2>
                     Concorde was born December 17, 2017. Their parents are <a href="spitfire.html">Supermarine Spitfire</a>, captain of <a href="https://mlp.fandom.com/wiki/Wonderbolts">the Wonderbolts</a> from 2008 to 2014, and <a href="https://mlp.fandom.com/wiki/Soarin">Soarin</a>, captain of the Wonderbolts from 2014 to 2032.
                     They came out as <a href="https://en.wikipedia.org/wiki/Non-binary_gender">non-binary</a> at the age of 14, they graduated from <a href="#">Cloudsdale Grammer School</a> in 2034, and received a Bachelor of Science degree in Applied Sciences with a specialization in aeronautics from <a href="#">Canterlot University</a> in 2038.
+
                     <h2 class="content-headings">EASA</h2>
                     On December 6, 2038, they were revelead to be one of 26 candidates selected to <a href="#">EASA Astronaut Group 42</a>, to report for training in January 2039. They were one of the 7 candidates from the Canterlot University's partner program with EASA.
+
                     <h2 class="content-headings">Personnal life</h2>
                     Concorde is fluid in multiple languages including Equestrian, Kirean and Gryphish.
 
                     <h2 class="content-headings">See also</h2>
                     <li><a href="stardust_21.html">Stardust 21</a></li>
                     <li><a href="#">List of EASA astronauts</a></li>
+
                     <h2 class="content-headings">References</h2>
                 </div>
             </div>
         </div>
     </body>
-    <script src="test.js"></script>
-    <script>
-        console.log(window.jsonData);
-
-        // Get all main headings of the page and display then in the left-panel div
-        function get_list_headings(){
-            let i = 0;
-            const left_panel = document.getElementById('left-panel');
-            const headings = document.getElementsByClassName('content-headings');
-
-            // Convert HTMLCollection to an array
-            Array.from(headings).forEach(h => {
-                h.id = "heading-" + i;
-
-                const content_heading = document.createElement("a");
-                content_heading.textContent = h.textContent;
-                content_heading.href = `#${h.id}`;
-                content_heading.addEventListener("click", function (event) {
-                    event.preventDefault();
-                    document.getElementById(h.id).scrollIntoView({ behavior: "smooth" });
-                });
-
-                left_panel.appendChild(content_heading);
-
-                i += 1;
-            });
-        }
-
-        get_list_headings();
-    </script>
+    <script src="scripts/main.js"></script>
 </html>
