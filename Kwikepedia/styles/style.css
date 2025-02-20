@@ -53,6 +53,10 @@ h1, h2, h3 {
     display: flex;
 }
 
+#before {
+    margin-bottom: 10px;
+}
+
 #before span {
     display: block;
     margin-bottom: 5px;
@@ -81,9 +85,10 @@ h1, h2, h3 {
     padding-left: 17%;
 }
 
-#infobox {
+.infobox {
     margin-top: 70px;
     margin-left: 10px;
+    margin-bottom: 10px;
     font-size: 14px;
     float:right;
     text-align: center;

@@ -6,74 +6,58 @@
         <link href="styles/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <div class="main_div">
-            <div class="top_bar">
-                <img class="logo" src="logo.png">
-                <input class="search_input" type="text">
-                <button class="search_button" type="button" name="button">SEARCH</button>
+        <div id="content">
+            <div id="back-panel"></div>
+            <div id="top-panel">
+                <img id="logo" src="logo.png">
+                <input id="search-input" type="text">
+                <button id="search-button" type="button" name="button">SEARCH</button>
             </div>
-            <table class="center_table">
-                <tr>
-                    <td style="min-width: 200px;">
-                        <br>
-                        <h3>Contents</h3>
-                        <a href="#">(Top)</a><br>
-                        <a href="#">Background</a><br>
-                        <a href="#">Stardust 21</a><br>
-                        <a href="#">Personal life</a><br>
-                        <a href="#">See also</a><br>
-                        <a href="#">References</a><br>
-                    </td>
-                    <td style="min-width: 40px;"></td>
-                    <td style="min-width: 100%;">
-                        <h1>Aurora (engineer)</h1>
+            <div id="main-content">
+                <div id="left-panel">
+                    <h3>Contents</h3>
+                    <a href="#">(Top)</a>
+                </div>
 
-                        <span id="site_sub">From Kwikepedia, the free encyclopedia</span>
-                        <br>
-                        <table class="side_table">
-                            <tr>
-                                <td>
-                                    <span style="font-weight: bold; font-size: 24px;">Aurora</span>
-                                    <img class="side_picture" src="aurora.png">
-                                    <br>
-                                    Aurora in 2044
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <table style="font-size: 14px;">
-                                        <tr><td class="side_title">Born</td> <td>Aurora <br> 24 February 2015 (age 29), Bulsan, Kirea</td></tr>
-                                        <tr><td class="side_title">Status</td> <td>Active</td></tr>
-                                        <tr><td class="side_title">Nationality</td> <td><img class="flag_small" src="kirea_flag.png"><a href="#">Kirea</a></td></tr>
-                                        <tr><td class="side_title">Occupation</td> <td><a href="#">Engineer</a>, <a href="#">Astronaut</a></td></tr>
-                                        <tr><td class="side_title">Selection</td> <td><a href="#">KIRA 2039 Selection</a></td></tr>
-                                        <tr><td class="side_title">Missions</td> <td><a href="stardust_21.html">Stardust 21</a></td></tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                        <p>For other uses, see <a href="#">Aurora (disambiguation)</a></p>
-                        <p>Aurora (born February 24, 2015) is an <a href="#">EASA engineer</a> and astronaut.</p>
-                        <h2>Background</h2>
+                <div id="central-panel">
+                    <div class="infobox">
+                        <p id="infobox-title">Aurora</p>
+                        <img id="infobox-picture" src="aurora.png">
+                        <figcaption>Aurora in 2044</figcaption>
+                        <div class="infobox-divider"></div>
+                        <div class="ib-entry"><span class="entry-title">Born</span><span class="entry-data">24 February 2015 (age 29), Bulsan, Kirea</span></div>
+                        <div class="ib-entry"><span class="entry-title">Status</span><span class="entry-data">Active</span></div>
+                        <div class="ib-entry"><span class="entry-title">Nationality</span><span class="entry-data"><img class="flag_small" src="kirea_flag.png"><a href="#">Kirea</a></span></div>
+                        <div class="ib-entry"><span class="entry-title">Occupations</span><span class="entry-data"><a href="#">Astronaut</a>, <a href="#">Engineer</a></span></div>
+                        <div class="ib-entry"><span class="entry-title">Selection</span><span class="entry-data"><a href="#">KIRA 2039 Selection</a></span></div>
+                        <div class="ib-entry"><span class="entry-title">Missions</span><span class="entry-data"><a href="stardust_21.html">Stardust 21</a></span></div>
+                        <div class="infobox-divider"></div>
+                    </div>
 
-                        Aurora was born on February 24, 2015, in Bulsan, a mountainous region in Kirea known for its stunning natural landscapes. Shy and introspective, Aurora preferred quiet pursuits, developing an early interest in technology and complex systems. She studied at the <a href="#">University of Kirea</a>, graduating with honors in Engineering Sciences, focusing on spacecraft systems.
-                        <h2>Stardust 21</h2>
+                    <h1>Aurora (astronaut)</h1>
+                    <div id="before">
+                        <span>From Kwikepedia, the free encyclopedia</span>
+                        <span>For other uses, see <a href="#">Aurora (disambiguation)</a></span>
+                    </div>
+                    <p>Aurora (born February 24, 2015) is an <a href="#">EASA engineer</a> and astronaut.</p>
 
-                        Aurora joined the <a href="#">KIRA</a> Astronaut Training Program in 2039, quickly distinguishing herself in spacecraft maintenance and repair. Selected for the <a href="stardust_21.html">Stardust 21</a> mission in collaboration with EASA, she serves as the mission’s engineer, where she will conduct essential repairs and updates to the MIDST telescope’s systems. Despite her aversion to the spotlight, Aurora’s skills make her an indispensable part of the team.
-                        <h2>Personal life</h2>
+                    <h2 class="content-headings">Background</h2>
+                    Aurora was born on February 24, 2015, in Bulsan, a mountainous region in Kirea known for its stunning natural landscapes. Shy and introspective, Aurora preferred quiet pursuits, developing an early interest in technology and complex systems. She studied at the <a href="#">University of Kirea</a>, graduating with honors in Engineering Sciences, focusing on spacecraft systems.
 
-                        Aurora has maintained a lifelong friendship with fellow astronaut <a href="concorde.html">Concorde</a>, whom she met during childhood. Outside her engineering career, Aurora is an avid competitive video gamer, known for her exceptional skills in multiplayer strategy games. She is deeply private and avoids photographs whenever possible, preferring to let her technical expertise speak for itself.
-                        <h2>See also</h2>
+                    <h2 class="content-headings">Stardust 21</h2>
+                    Aurora joined the <a href="#">KIRA</a> Astronaut Training Program in 2039, quickly distinguishing herself in spacecraft maintenance and repair. Selected for the <a href="stardust_21.html">Stardust 21</a> mission in collaboration with EASA, she serves as the mission’s engineer, where she will conduct essential repairs and updates to the MIDST telescope’s systems. Despite her aversion to the spotlight, Aurora’s skills make her an indispensable part of the team.
 
-                        <ul>
-                            <li><a href="stardust_21.html">Stardust 21</a></li>
-                            <li><a href="concorde.html">Concorde (astronaut)</a></li>
-                        </ul>
-                        <h2>References</h2>
+                    <h2 class="content-headings">Personnal life</h2>
+                    Aurora has maintained a lifelong friendship with fellow astronaut <a href="concorde.html">Concorde</a>, whom she met during childhood. Outside her engineering career, Aurora is an avid competitive video gamer, known for her exceptional skills in multiplayer strategy games. She is deeply private and avoids photographs whenever possible, preferring to let her technical expertise speak for itself.
 
-                    </td>
-                </tr>
-            </table>
+                    <h2 class="content-headings">See also</h2>
+                    <li><a href="stardust_21.html">Stardust 21</a></li>
+                    <li><a href="#">List of EASA astronauts</a></li>
+
+                    <h2 class="content-headings">References</h2>
+                </div>
+            </div>
         </div>
     </body>
+    <script src="scripts/main.js"></script>
 </html>
