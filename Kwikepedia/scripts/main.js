@@ -22,4 +22,16 @@ function get_list_headings(){
     });
 }
 
+// Inject the top panel into the page
+function add_top_panel(){
+    const top_panel_HTML = `
+    <img id="logo" src="../../assets/logo.png">
+    <input id="search-input" type="text">
+    <button id="search-button" type="button" name="button">SEARCH</button>
+    `;
+
+    document.getElementById("top-panel").innerHTML = top_panel_HTML;
+};
+
+add_top_panel();
 get_list_headings();
