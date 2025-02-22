@@ -2,7 +2,21 @@
 function get_list_headings(){
     let i = 0;
     const left_panel = document.getElementById('left-panel');
+    const top_panel = document.getElementById('top-panel');
     const headings = document.getElementsByClassName('content-headings');
+
+    const title = document.createElement("h3");
+    title.textContent = "Contents"
+    left_panel.appendChild(title);
+
+    const top_heading = document.createElement("a");
+    top_heading.textContent = "(Top)";
+    top_heading.href = "#top-panel";
+    top_heading.addEventListener("click", function (event) {
+        event.preventDefault();
+        document.getElementById(top_panel.id).scrollIntoView({ behavior: "smooth" });
+    });
+    left_panel.appendChild(top_heading);
 
     // Convert HTMLCollection to an array
     Array.from(headings).forEach(h => {
