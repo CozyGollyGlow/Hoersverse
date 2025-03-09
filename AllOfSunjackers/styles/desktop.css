@@ -77,15 +77,31 @@ body {
     width: 95%;
     font-size: 20px;
     cursor: pointer;
-    background-color: #00c74b;
     border: none;
     border-radius: 5px;
     margin: 0 0 5px 0;
     padding: 5px;
 }
 
-.panel_button:hover {
-  background-color: #00c7ae;
+.panel_button.green {
+    background-color: #3bcc74;
+}
+.panel_button.green:hover {
+    background-color: #63d7a7;
+}
+
+.panel_button.blue {
+    background-color: #3fa2d4;
+}
+.panel_button.blue:hover {
+    background-color: #5fc0f4;
+}
+
+.panel_button.red {
+    background-color: #cc4d3b;
+}
+.panel_button.red:hover {
+    background-color: #d78863;
 }
 
 .panel_slider {
