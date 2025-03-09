@@ -73,7 +73,7 @@ body {
   left: -40px;  /* Slightly outside the panel */
 }
 
-.panel-button {
+.side-panel button:not(.toggle-btn) {
     width: 95%;
     font-size: 20px;
     cursor: pointer;
@@ -83,24 +83,24 @@ body {
     padding: 5px;
 }
 
-.panel-button.green {
+.side-panel button:not(.toggle-btn).green {
     background-color: #3bcc74;
 }
-.panel-button.green:hover {
+.side-panel button:not(.toggle-btn).green:hover {
     background-color: #63d7a7;
 }
 
-.panel-button.blue {
+.side-panel button:not(.toggle-btn).blue {
     background-color: #3fa2d4;
 }
-.panel-button.blue:hover {
+.side-panel button:not(.toggle-btn).blue:hover {
     background-color: #5fc0f4;
 }
 
-.panel-button.red {
+.side-panel button:not(.toggle-btn).red {
     background-color: #cc4d3b;
 }
-.panel-button.red:hover {
+.side-panel button:not(.toggle-btn).red:hover {
     background-color: #d78863;
 }
 
