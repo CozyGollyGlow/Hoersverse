@@ -8,10 +8,17 @@
 </head>
 <body style="background-image: url('../assets/background_1.png');">
     <div class="side-panel left">
-        <p></p>
+        <h1>Infobox</h1>
+        <a href="../"><button type="button" class="panel_button">Other Projects</button></a>
+        <a href="https://askthesunjackers.tumblr.com/"><button type="button" class="panel_button">Official Tumblr</button></a>
+        <a href="https://www.patreon.com/CaptainHoers/"><button type="button" class="panel_button">CaptainHoers' Patreon</button></a>
+        <button class="toggle-btn" onclick="togglePanel('left')">❮</button>
     </div>
     <div class="side-panel right">
-        <p></p>
+        <h1>Settings</h1>
+        <p>Margin: <span id="marginValue">25</span>%</p>
+        <input class="panel_slider" type="range" id="marginSlider" min="10" max="45" value="25">
+        <button class="toggle-btn" onclick="togglePanel('right')">❯</button>
     </div>
     <div class="main-content">
         <div class="title-block"><img src="../assets/sunjackers_logo.png" /></div>
@@ -308,5 +315,22 @@
         // Switch to mobile stylesheet
         document.getElementById('stylesheet').setAttribute('href', 'styles/mobile.css');
     }
-  </script>
+
+    function togglePanel(side) {
+        const panel = document.querySelector(`.side-panel.${side}`);
+        panel.classList.toggle("hidden");
+    }
+
+    const slider = document.getElementById('marginSlider');
+    const marginValue = document.getElementById('marginValue');
+    const mainContent = document.querySelector('.main-content');
+
+    // Update the margin when the slider value changes
+    slider.addEventListener('input', function() {
+        const value = slider.value;
+        marginValue.textContent = value;  // Update the displayed value
+        mainContent.style.margin = `0% ${value}%`;  // Update the margin of the element
+    });
+
+</script>
 </html>
