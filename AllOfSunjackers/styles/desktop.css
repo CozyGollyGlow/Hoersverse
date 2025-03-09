@@ -73,7 +73,7 @@ body {
   left: -40px;  /* Slightly outside the panel */
 }
 
-.panel_button {
+.panel-button {
     width: 95%;
     font-size: 20px;
     cursor: pointer;
@@ -83,28 +83,28 @@ body {
     padding: 5px;
 }
 
-.panel_button.green {
+.panel-button.green {
     background-color: #3bcc74;
 }
-.panel_button.green:hover {
+.panel-button.green:hover {
     background-color: #63d7a7;
 }
 
-.panel_button.blue {
+.panel-button.blue {
     background-color: #3fa2d4;
 }
-.panel_button.blue:hover {
+.panel-button.blue:hover {
     background-color: #5fc0f4;
 }
 
-.panel_button.red {
+.panel-button.red {
     background-color: #cc4d3b;
 }
-.panel_button.red:hover {
+.panel-button.red:hover {
     background-color: #d78863;
 }
 
-.panel_slider {
+.panel-slider {
     width: 100%;
 }
 
