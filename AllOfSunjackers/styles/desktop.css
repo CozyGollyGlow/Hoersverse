@@ -144,7 +144,7 @@ body {
 }
 
 .iframe-block {
-  background: white;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   margin: 2% 0%;
   padding: 65% 2% 1.5% 2%;
   border-radius: 8px;
