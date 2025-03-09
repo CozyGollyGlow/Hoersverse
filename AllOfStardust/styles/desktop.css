@@ -53,7 +53,7 @@ body {
   opacity: 0;
   text-align: center;
   line-height: 40px; /* Matches button height for vertical centering */
-  border-radius: 25%;
+  border-radius: 10px;
 }
 
 /* Show button when hovering over the panel */
@@ -62,7 +62,7 @@ body {
 }
 
 .toggle-btn:hover {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(200, 200, 200, 0.9);
 }
 
 /* Positioning the toggle buttons */
