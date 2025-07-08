@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoersverse Charadex</title>
+    <link id="stylesheet" rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div id="characters">
+        <h1>Hoersverse Charadex</h1>
+        <h2>Firestarter</h2>
+        <div class="category">
+            <div class="sub-category">
+                <h3>Wonderbolts</h3>
+                <div id="wonderbolts" class="character-container">
+                </div>
+            </div>
+            <div class="sub-category">
+                <h3>Family</h3>
+                <div id="family" class="character-container">
+                </div>
+            </div>
+            <div class="sub-category">
+                <h3>Friends</h3>
+                <div id="friends" class="character-container">
+                </div>
+            </div>
+        </div>
+
+        <h2>Sunjackers</h2>
+        <div class="category">
+            <div class="sub-category">
+                <h3>The Sunjackers</h3>
+                <div id="sunjackers" class="character-container">
+                </div>
+            </div>
+            <div class="sub-category">
+                <h3>Friends & Allies</h3>
+                <div id="sunjackers-friends" class="character-container">
+                </div>
+            </div>
+            <div class="sub-category">
+                <h3>Skyguard</h3>
+                <div id="skyguard" class="character-container">
+                </div>
+            </div>
+        </div>
+
+        <h2>Stardust</h2>
+        <div class="category">
+            <div class="sub-category">
+                <h3>Main Crew</h3>
+                <div id="stardust-crew" class="character-container">
+                </div>
+            </div>
+            <div class="sub-category">
+                <h3>Backup Crew</h3>
+                <div id="backup-crew" class="character-container">
+                </div>
+            </div>
+            <div class="sub-category">
+            <h3>EASA</h3>
+                <div id="easa" class="character-container">
+                </div>
+            </div>
+            <div class="sub-category">
+            <h3>Others</h3>
+                <div id="sd-others" class="character-container">
+                </div>
+            </div>
+        </div>
+
+        <div id="hoofnote">
+            <p>Some characters will redirect with the same page (due to existing in the different comics).</p>
+            <p>Characters may be in categories that they do not belong to anymore, this is just for classification purpose.</p>
+            <p>Canon characters' portraits will redirect to <a href="https://mlpvector.club/cg/pony">MLP Vector Club</a>.</p>
+        </div>
+    </div>
+
+    <script>
+        addPony("wonderbolts", "Spitfire", "spitfire.png", "https://mlpvector.club/cg/pony/v/55-Spitfire");
+        addPony("wonderbolts", "Soarin", "soarin.png", "https://mlpvector.club/cg/pony/v/127-Soarin");
+
+        addPony("family", "Concorde (foal)", "concorde_young.png", "profiles/Concorde/");
+        addPony("family", "Supermarine", "supermarine.png");
+        addPony("family", "Seafire", "seafire.png");
+        addPony("family", "Seahawk", "seahawk.png");
+
+        addPony("friends", "Aurora (foal)", "aurora_young.png");
+        addPony("friends", "Snowstorm", "snowstorm.png");
+        addPony("friends", "Harvest Ember", "harvest ember.png");
+
+        addPony("sunjackers", "Atom Smasher", "atom.png", "profiles/Atom_Smasher/");
+        addPony("sunjackers", "Candy Chip", "candy.png");
+        addPony("sunjackers", "Throttle Track", "throttle.png");
+
+        addPony("sunjackers-friends", "Father Corona", "father corona.png");
+        addPony("sunjackers-friends", "Kobal", "kobal.png");
+        addPony("sunjackers-friends", "Silent Spring", "silent spring.png");
+
+        addPony("skyguard", "Rainbow Code", "rainbow code.png");
+        addPony("skyguard", "Jump Cannon", "jump cannon.png");
+        addPony("skyguard", "Concorde (Skyguard)", "concorde_skyguard.png", "profiles/Concorde/");
+
+        addPony("stardust-crew", "Concorde (adult)", "concorde.png", "profiles/Concorde/");
+        addPony("stardust-crew", "Aurora (adult)", "aurora.png");
+        addPony("stardust-crew", "Zambuko", "zambuko.png");
+        addPony("stardust-crew", "Rosetta", "rosetta.png");
+        addPony("stardust-crew", "Wolfram", "wolfram.png");
+
+        addPony("backup-crew", "Charger", "charger.png");
+        addPony("backup-crew", "Sequoia", "sequoia.png");
+        addPony("backup-crew", "Ursid", "ursid.png");
+        addPony("backup-crew", "Vega", "vega.png");
+        addPony("backup-crew", "Brioche", "brioche.png");
+
+        addPony("easa", "High Frontier", "high frontier.png");
+        addPony("easa", "Redwood", "redwood.png");
+        addPony("easa", "Dusky Meadows", "dusky.png");
+        addPony("easa", "Kolache", "kolache.png");
+
+        addPony("sd-others", "Baba", "baba.png");
+        addPony("sd-others", "Earth Scorch", "earth scorch.png");
+        addPony("sd-others", "Crystal Clear", "crystal clear.png");
+
+        function addPony(catId, ponyName = "", imgFile = "", url = "") {
+            const cat = document.getElementById(catId)
+
+            const new_pony = document.createElement('div');
+            new_pony.classList.add("character");
+
+            new_pony.onclick = () => {
+                window.location.href = url;
+            };
+
+            const img = document.createElement('img');
+            img.id = "character-pic"
+            img.src = `assets/characters/${imgFile}`;
+            new_pony.appendChild(img);
+
+            const p = document.createElement('p');
+            p.id = "character-name"
+            p.innerHTML = ponyName
+            new_pony.appendChild(p);
+
+            cat.appendChild(new_pony);
+        }
+    </script>
+</body>
+</html>

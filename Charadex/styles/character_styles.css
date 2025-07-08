@@ -1,0 +1,122 @@
+html, body {
+    color: white;
+    font-family: sans-serif;
+    background-image: url('../assets/gradient.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+h1, h2 {
+    margin: 0px;
+}
+
+h2 {
+    text-align: center;
+    width: 100%;
+}
+
+p {
+    margin: 5px;
+}
+
+#character {
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    display: flex;
+    gap: 10px;
+    /* align-items: center; */
+}
+
+#character-pic {
+    width: 250px;
+    height: 250px;
+    display: flex;
+}
+
+#buttmark {
+    margin-left: auto;
+    margin-right: 15px;
+    align-content: center;
+}
+
+#buttmark-pic {
+    width: 200px;
+    height: 200px;
+}
+
+tag {
+    margin-right: 10px;
+}
+
+tag.firestarter {
+    font-weight: bold;
+    background: linear-gradient(0deg, #ff8200, #ffa400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+tag.sunjackers {
+    font-weight: bold;
+    background: linear-gradient(0deg, #39ff14, #47dfb6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+tag.stardust {
+    font-weight: bold;
+    background: linear-gradient(0deg, #4fa9bb, #c9ecfc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#colors {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 90%;
+    gap: 10px;
+}
+
+.color-cat {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.color-sample {
+    border: 1px solid white;
+    display: flex;
+    width: 35px;
+    height: 35px;
+}
+
+.color {
+    display: flex;
+}
+
+.color-info {
+    display: grid;
+    padding-left: 5px;
+}
+
+.color-title {
+    font-weight: bold;
+}
+
+.color-codes {
+    font-style: italic;
+    font-size: 14px;
+}
