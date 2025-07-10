@@ -12,11 +12,11 @@ html, body {
     width: 100%;
 }
 
-h1, h2 {
+h1, h2, h3 {
     margin: 0px;
 }
 
-h2 {
+h2, h3 {
     text-align: center;
     width: 100%;
 }
@@ -119,4 +119,28 @@ tag.stardust {
 .color-codes {
     font-style: italic;
     font-size: 14px;
+}
+
+#pictures {
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    display: flex;
+    gap: 10px;
+}
+
+.pic {
+    display: flex;
+    flex-direction: column;
+}
+
+.pic img {
+    max-height: 300px;
+    height: auto;
+    width: auto;
+    display: block;
+    max-width: 100%;
+    object-fit: contain;
 }
