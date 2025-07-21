@@ -20,97 +20,28 @@
             <p><tag class="sunjackers">Sunjackers</tag>Expert driver, former Republican Guardspony and member of the Sunjackers crew</p>
         </div>
     </div>
-    <div id="colors">
-        <div class="color-cat">
-            <h2>Coat</h2>
-            <div class="color">
-                <span style="background-color:#eaeaea" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Fill</span>
-                    <span class="color-codes">#eaeaea</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Mane & Tail</h2>
-            <div class="color">
-                <span style="background-color:#b9bfc8" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Color 1</span>
-                    <span class="color-codes">#b9bfc8</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#57aafe" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Color 2</span>
-                    <span class="color-codes">#57aafe</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Eyes</h2>
-            <div class="color">
-                <span style="background-color:#55aafe" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Eyes</span>
-                    <span class="color-codes">#55aafe</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Cutie Mark</h2>
-        </div>
-        <div class="color-cat">
-            <h2>Clothes</h2>
-            <div class="color">
-                <span style="background-color:#3d3d3d" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Shirt & Gloves</span>
-                    <span class="color-codes">#3d3d3d</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#fafafa" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Jacket</span>
-                    <span class="color-codes">#fafafa</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#8474d7" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Jacket Lining</span>
-                    <span class="color-codes">#8474d7</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#553dce" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Jacket Shoulders</span>
-                    <span class="color-codes">#553dce</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Headset</h2>
-            <div class="color">
-                <span style="background-color:#868792" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Color 1</span>
-                    <span class="color-codes">#868792</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#fd66c6" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Color 2</span>
-                    <span class="color-codes">#fd66c6</span>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <div id="colors"></div>
+    
+    <script src="../../scripts/profile.js"></script>
     <script>
+        addCategory("coat-cat", "Coat");
+        addColor("coat-cat", "Fill", "#eaeaea")
+
+        addCategory("mane-cat", "Mane & Tail");
+        addColor("mane-cat", "Fill 1", "#b9bfc8")
+        addColor("mane-cat", "Fill 2", "#57aafe")
+
+        addCategory("eyes-cat", "Eyes");
+        addColor("eyes-cat", "Eyes", "#55aafe")
+
+        addCategory("cm-cat", "Cutie Mark");
+
+        addCategory("clothes-cat", "Clothes");
+        addColor("clothes-cat", "Shirt & Gloves", "#3d3d3d")
+        addColor("clothes-cat", "Jacket", "#fafafa")
+        addColor("clothes-cat", "Jacket Lining", "#8474d7")
+        addColor("clothes-cat", "Jacket Shoulders", "#553dce")
     </script>
 </body>
 </html>

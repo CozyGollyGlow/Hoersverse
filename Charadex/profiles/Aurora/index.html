@@ -21,93 +21,35 @@
             <p><tag class="stardust">Stardust</tag>EASA astronaut and engineer of the Stardust 21 crew</p>
         </div>
     </div>
-    <div id="colors">
-        <div class="color-cat">
-            <h2>Coat</h2>
-            <div class="color">
-                <span style="background-color:#ffe49d" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Fill</span>
-                    <span class="color-codes">#ffe49d</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Mane & Tail</h2>
-            <div class="color">
-                <span style="background-color:#fe7330" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Fill 1</span>
-                    <span class="color-codes">#fe7330</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#ffa356" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Fill 2</span>
-                    <span class="color-codes">#ffa356</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Eyes</h2>
-            <div class="color">
-                <span style="background-color:#ff9012" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Eyes</span>
-                    <span class="color-codes">#30a1ff</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Kirin Features</h2>
-            <div class="color">
-                <span style="background-color:#a48648" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Horn</span>
-                    <span class="color-codes">#a48648</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#30a1ff" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Horn Highlights</span>
-                    <span class="color-codes">#30a1ff</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#dbb467" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Scales & Hooves</span>
-                    <span class="color-codes">#dbb467</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Others</h2>
-            <div class="color">
-                <span style="background-color:#dae2e4" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Shirt</span>
-                    <span class="color-codes">#dae2e4</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#5d5f6b" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Earrings</span>
-                    <span class="color-codes">#5d5f6b</span>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <div id="colors"></div>
+    
     <div id="pictures">
         <div class="pic">
             <h3>Refsheet <tag class="stardust">SD</tag></h3>
             <img src="../../assets/characters/aurora/aurora_refsheet.png">
         </div>
     </div>
+    <script src="../../scripts/profile.js"></script>
     <script>
+        addCategory("coat-cat", "Coat");
+        addColor("coat-cat", "Fill", "#ffe49d")
+
+        addCategory("mane-cat", "Mane & Tail");
+        addColor("mane-cat", "Fill 1", "#fe7330")
+        addColor("mane-cat", "Fill 2", "#ffa356")
+
+        addCategory("eyes-cat", "Eyes");
+        addColor("eyes-cat", "Eyes", "#30a1ff")
+
+        addCategory("kirin-cat", "Kirin Features");
+        addColor("kirin-cat", "Horn", "#a48648")
+        addColor("kirin-cat", "Horn Highlights", "#30a1ff")
+        addColor("kirin-cat", "Scales & Hooves", "#dbb467")
+
+        addCategory("others-cat", "Others");
+        addColor("others-cat", "Shirt", "#dae2e4")
+        addColor("others-cat", "Earrings", "#5d5f6b")
     </script>
 </body>
 </html>

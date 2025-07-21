@@ -20,90 +20,31 @@
             <p><tag class="sunjackers">Sunjackers</tag>Member of the Sunjackers crew</p>
         </div>
     </div>
-    <div id="colors">
-        <div class="color-cat">
-            <h2>Coat</h2>
-            <div class="color">
-                <span style="background-color:#f9a85f" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Fill</span>
-                    <span class="color-codes">#f9a85f</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Mane & Tail</h2>
-            <div class="color">
-                <span style="background-color:#35c965" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Color 1</span>
-                    <span class="color-codes">#35c965</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#29934b" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Color 2</span>
-                    <span class="color-codes">#29934b</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Eyes</h2>
-            <div class="color">
-                <span style="background-color:#35c965" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Eyes</span>
-                    <span class="color-codes">#35c965</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Cutie Mark</h2>
-        </div>
-        <div class="color-cat">
-            <h2>Cyberware</h2>
-            <div class="color">
-                <span style="background-color:#4da562" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Calves</span>
-                    <span class="color-codes">#4da562</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#869292" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Legs</span>
-                    <span class="color-codes">#869292</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#c0ced8" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Hooves</span>
-                    <span class="color-codes">#c0ced8</span>
-                </div>
-            </div>
-        </div>
-        <div class="color-cat">
-            <h2>Clothes</h2>
-            <div class="color">
-                <span style="background-color:#3d3d3d" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Jacket</span>
-                    <span class="color-codes">#3d3d3d</span>
-                </div>
-            </div>
-            <div class="color">
-                <span style="background-color:#869292" class="color-sample"></span>
-                <div class="color-info">
-                    <span class="color-title">Goggle Frame</span>
-                    <span class="color-codes">#869292</span>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <div id="colors"></div>
+
+    <script src="../../scripts/profile.js"></script>
     <script>
+        addCategory("coat-cat", "Coat");
+        addColor("coat-cat", "Fill", "#f9a85f")
+
+        addCategory("mane-cat", "Mane & Tail");
+        addColor("mane-cat", "Fill 1", "#35c965")
+        addColor("mane-cat", "Fill 2", "#29934b")
+
+        addCategory("eyes-cat", "Eyes");
+        addColor("eyes-cat", "Eyes", "#35c965")
+
+        addCategory("cm-cat", "Cutie Mark");
+
+        addCategory("cyberware-cat", "Cyberware");
+        addColor("cyberware-cat", "Calves", "#4da562")
+        addColor("cyberware-cat", "Legs", "#869292")
+        addColor("cyberware-cat", "Hooves", "#c0ced8")
+
+        addCategory("clothes-cat", "Clothes");
+        addColor("clothes-cat", "Jacket", "#3d3d3d")
+        addColor("clothes-cat", "Goggle Frame", "#869292")
     </script>
 </body>
 </html>
