@@ -29,6 +29,14 @@ function addColor(catId, title, hex){
     color_sample.style.backgroundColor = hex;
     new_color.appendChild(color_sample)
 
+    color_sample.addEventListener('click', () => {
+        navigator.clipboard.writeText(hex).then(() => {
+            alert('Copied to clipboard!');
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    });
+
     const color_info = document.createElement('div');
     color_info.classList.add("color-info");
     new_color.appendChild(color_info)
