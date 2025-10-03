@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url('../assets/gradient.png'); /* Replace with your image */
+    background-attachment: fixed; /* Keeps the background fixed */
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+#main-title {
+    text-align: center;
+    line-height: 0.5;
+    font-size: 75px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#characters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.character {
+    margin: 5px;
+}
+
+#duel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#duel-divider {
+    margin: 25px;
+    font-size: 50px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#duel-characters {
+    display: flex;
+    align-items: center;
+}
+
+.chara-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.duel-chara-pic {
+    width: 250px;
+    height: 250px;
+    margin: 5px;
+}
+
+.duel-btn {
+    font-size: 25px;
+}

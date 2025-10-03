@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smash and no Pass</title>
+    <link id="stylesheet" rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div id="characters">
+    </div>
+    <div id="duel">
+        <h1 id="main-title"> SMASH OR SMASH? </h1>
+        <div id="duel-characters">
+            <div class="chara-div">
+                <img id="pic1" class="duel-chara-pic" src="">
+                <button id="name1" class="duel-btn">NAME 1</button>
+            </div>
+            <span id="duel-divider">OR</span>
+            <div class="chara-div">
+                <img id="pic2" class="duel-chara-pic" src="">
+                <button id="name2" class="duel-btn">NAME 2</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    const chara_div = document.getElementById("characters")
+    let characters = []; // Original array of all characters
+    let current_characters = []; // Characters currently choosen
+
+    const name1 = document.getElementById("name1")
+    const name2 = document.getElementById("name2")
+    const pic1 = document.getElementById("pic1")
+    const pic2 = document.getElementById("pic2")
+
+    class Character {
+        constructor(name, pic) {
+            this.name = name;
+            this.pic = pic;
+        }
+    }
+
+    /////////////////////////////////////////////
+
+    addCharacter("Concorde", "assets/characters/concorde.png")
+    addCharacter("Aurora", "assets/characters/aurora.png")
+    addCharacter("Rosetta", "assets/characters/rosetta.png")
+    addCharacter("Zambuko", "assets/characters/zambuko.png")
+    addCharacter("Wolfram", "assets/characters/wolfram.png")
+    addCharacter("Sequoia", "assets/characters/sequoia.png")
+    addCharacter("Charger", "assets/characters/charger.png")
+    addCharacter("Redwood", "assets/characters/redwood.png")
+
+
+    start_duel()
+
+    /////////////////////////////////////////////
+
+    // Add a new character to the character list
+    function addCharacter(name, pic){
+        const new_character_div = document.createElement('div');
+
+        const character_name = document.createElement('span');
+        character_name.innerHTML = name
+        new_character_div.classList.add("character");
+        new_character_div.appendChild(character_name);
+
+        chara_div.appendChild(new_character_div);
+
+        new_character = new Character(name, pic)
+        characters.push(new_character)
+    }
+
+    // Put two characters in for duel
+    function start_duel(){
+        const chara1 = removeItem(characters, getRandomItem(characters))
+        const chara2 = removeItem(characters, getRandomItem(characters))
+
+        console.log(`Dueling ${chara1.name} with ${chara2.name}`);
+
+        name1.innerHTML = chara1.name
+        name2.innerHTML = chara2.name
+
+        pic1.src = chara1.pic
+        pic2.src = chara2.pic
+    }
+
+    // Remove item from an array, returning it
+    function removeItem(arr, item) {
+        const index = arr.indexOf(item);
+        return index !== -1 ? arr.splice(index, 1)[0] : null;
+    }
+
+    // Get random item from an array
+    function getRandomItem(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+</script>
+</html>
