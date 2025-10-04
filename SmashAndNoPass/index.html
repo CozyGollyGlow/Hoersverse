@@ -9,7 +9,6 @@
 <body>
     <h1 id="main-title"> SMASH OR SMASH? </h1>
     <div id="duel">
-
         <div id="duel-characters">
             <div class="chara-div">
                 <img id="pic1" class="duel-chara-pic" src="">
@@ -82,7 +81,7 @@
         new_character = new Character(name, pic)
         characters.push(new_character)
 
-        addPortrait(new_character, current_round_div)
+        addPortrait(new_character, current_round_div.children[1])
     }
 
     // Add a small character portrait in a div
@@ -103,17 +102,20 @@
     function startNewRound(){
         round++;
 
-        const round_number = document.createElement('h1');
-        round_number.innerHTML = `Round ${round}`;
-        // rounds_parent.appendChild(round_number)
-
         const round_div = document.createElement('div');
         round_div.classList.add("round-div")
         round_div.setAttribute('round', round);
 
+        const round_number = document.createElement('h1');
+        round_number.innerHTML = `Round ${round}`;
+        round_div.appendChild(round_number);
+
+        const round_characters_div = document.createElement('div');
+        round_characters_div.classList.add("characters")
+        round_div.appendChild(round_characters_div);
+
         rounds_parent.insertBefore(round_div, rounds_parent.firstChild);
-        rounds_parent.insertBefore(round_number, rounds_parent.firstChild);
-        // rounds_parent.appendChild(round_div)
+        // rounds_parent.insertBefore(round_number, rounds_parent.firstChild);
 
         return round_div
     }
@@ -137,13 +139,22 @@
 
     // Select a character in the duel
     function selectCharacter(idx) {
+        // Add a duel div to keep track of who wins against who
+        const result_div = document.createElement('div');
+        result_div.classList.add("result-div");
+        current_round_div.appendChild(result_div);
 
-        const winner = removeItem(current_duel, current_duel[idx])
-        const looser = removeItem(current_duel, current_duel[0])
+        addPortrait(current_duel[0], result_div);
+        const result_div_versus = document.createElement('p');
+        result_div_versus.innerHTML = "VERSUS";
+        result_div.append(result_div_versus);
+        addPortrait(current_duel[1], result_div);
 
-        winner_characters.push(winner)
+        const winner = removeItem(current_duel, current_duel[idx]);
+        const looser = removeItem(current_duel, current_duel[0]);
 
-        // const char = current_duel[idx]
+        winner_characters.push(winner);
+
         const winner_portrait = current_round_div.querySelector(`div[chara="${winner.name}"]`);
         const looser_portrait = current_round_div.querySelector(`div[chara="${looser.name}"]`);
 
@@ -157,7 +168,7 @@
 
             winner_characters.forEach(function(item) {
                 characters.push(item)
-                addPortrait(item, current_round_div)
+                addPortrait(item, current_round_div.children[1])
             });
 
             winner_characters = []
