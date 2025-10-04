@@ -11,6 +11,12 @@ body {
     color: white;
 }
 
+#rounds {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #main-title {
     text-align: center;
     line-height: 0.5;
@@ -19,11 +25,10 @@ body {
     font-style: italic;
 }
 
-#characters {
+.round-div {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
 }
 
 .character {

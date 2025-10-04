@@ -21,14 +21,20 @@
             </div>
         </div>
     </div>
-    <div id="characters">
+    <div id="rounds">
+    </div>
     </div>
 
 </body>
 <script>
-    const chara_div = document.getElementById("characters")
+    const rounds_parent = document.getElementById("rounds");
+
     let characters = []; // Original array of all characters
     let current_duel = []; // Characters currently choosen
+    let winner_characters = []; // Characters that won a duel in the current round
+
+    let round = 0; // Current round number
+    let current_round_div
 
     const name1 = document.getElementById("name1")
     const name2 = document.getElementById("name2")
@@ -43,6 +49,8 @@
     }
 
     /////////////////////////////////////////////
+
+    current_round_div = startNewRound()
 
     addCharacter("Concorde", "assets/characters/concorde.png")
     addCharacter("Aurora", "assets/characters/aurora.png")
@@ -59,19 +67,11 @@
 
     // Add a new character to the character list
     function addCharacter(name, pic){
-        // const new_character_div = document.createElement('div');
-        //
-        // // const character_name = document.createElement('span');
-        // // character_name.innerHTML = name
-        // // new_character_div.classList.add("character");
-        // // new_character_div.appendChild(character_name);
-        //
-        // chara_div.appendChild(new_character_div);
 
         new_character = new Character(name, pic)
         characters.push(new_character)
 
-        addPortrait(new_character, chara_div)
+        addPortrait(new_character, current_round_div)
     }
 
     // Add a small character portrait in a div
@@ -88,6 +88,23 @@
         parent.appendChild(portrait_div)
     }
 
+    // Start a round with characters, then starting a duel
+    function startNewRound(){
+        round++;
+
+        const round_number = document.createElement('h1');
+        round_number.innerHTML = `Round ${round}`;
+        rounds_parent.appendChild(round_number)
+
+        const round_div = document.createElement('div');
+        round_div.classList.add("round-div")
+        round_div.setAttribute('round', round);
+
+        rounds_parent.appendChild(round_div)
+
+        return round_div
+    }
+
     // Put two characters in for duel
     function startDuel(){
         const chara1 = removeItem(characters, getRandomItem(characters))
@@ -95,8 +112,6 @@
 
         current_duel.push(chara1)
         current_duel.push(chara2)
-
-        console.log(current_duel)
 
         console.log(`Dueling ${chara1.name} with ${chara2.name}`);
 
@@ -109,21 +124,35 @@
 
     // Select a character in the duel
     function selectCharacter(idx) {
-        const other = (arr, index) => arr[index ^ 1];
 
-        const winner = current_duel[idx]
-        const looser = other(current_duel, idx)
+        const winner = removeItem(current_duel, current_duel[idx])
+        const looser = removeItem(current_duel, current_duel[0])
+
+        winner_characters.push(winner)
 
         // const char = current_duel[idx]
-        const winner_portrait = chara_div.querySelector(`div[chara="${winner.name}"]`);
-        const looser_portrait = chara_div.querySelector(`div[chara="${looser.name}"]`);
+        const winner_portrait = current_round_div.querySelector(`div[chara="${winner.name}"]`);
+        const looser_portrait = current_round_div.querySelector(`div[chara="${looser.name}"]`);
 
         winner_portrait.classList.add("green")
         looser_portrait.classList.add("red")
         looser_portrait.firstElementChild.classList.add("gray")
 
-        console.log(winner_portrait)
-        console.log(looser_portrait)
+        // Start a new duel
+        if (characters.length == 0) {
+            current_round_div = startNewRound()
+
+            winner_characters.forEach(function(item) {
+                characters.push(item)
+                addPortrait(item, current_round_div)
+            });
+
+            winner_characters = []
+
+            startDuel()
+        } else {
+            startDuel()
+        }
     }
 
     // Remove item from an array, returning it
