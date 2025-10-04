@@ -111,11 +111,13 @@ h1 {
 }
 
 .red {
-  /* filter: sepia(1) saturate(5) hue-rotate(-20deg); */
     border: 2px solid red;
 }
 
 .green {
     border: 2px solid lime;
-  /* filter: sepia(1) saturate(5) hue-rotate(90deg); */
+}
+
+.hidden {
+    display: none !important;
 }

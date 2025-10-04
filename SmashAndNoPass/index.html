@@ -27,6 +27,7 @@
 
 </body>
 <script>
+    const duel_div = document.getElementById("duel");
     const rounds_parent = document.getElementById("rounds");
 
     let characters = []; // Original array of all characters
@@ -186,25 +187,30 @@
             el.firstElementChild.classList.add("gray")
         });
 
+        // If there is only one winner (the end)
+
         // Start a new duel
         if (characters.length == 0) {
-            current_round_div = startNewRound()
+            if (winner_characters.length == 1){
+                // #TODO: do something when there is only one character left
+                // >not open a new round
+                // >change the main space to show only one big portrait
+                duel_div.classList.add("hidden");
+            } else {
+                current_round_div = startNewRound()
 
-            winner_characters.forEach(function(item) {
-                characters.push(item)
-                addPortrait(item, current_round_div.children[1])
-            });
+                winner_characters.forEach(function(item) {
+                    characters.push(item)
+                    addPortrait(item, current_round_div.children[1])
+                });
 
-            winner_characters = []
+                winner_characters = []
 
-            startDuel()
+                startDuel()
+            }
         } else {
             startDuel()
         }
-
-        // #TODO: do something when there is only one character left
-        // >not open a new round
-        // >change the main space to show only one big portrait
     }
 
     // Remove item from an array, returning it
