@@ -68,7 +68,7 @@
     addCharacter("Kobal", "assets/characters/kobal.png")
     addCharacter("Jump Cannon", "assets/characters/jump cannon.png")
     addCharacter("Rainbow Code", "assets/characters/rainbow code.png")
-    addCharacter("Silent SPring", "assets/characters/silent spring.png")
+    addCharacter("Silent Spring", "assets/characters/silent spring.png")
 
 
     startDuel()
@@ -155,12 +155,23 @@
 
         winner_characters.push(winner);
 
-        const winner_portrait = current_round_div.querySelector(`div[chara="${winner.name}"]`);
-        const looser_portrait = current_round_div.querySelector(`div[chara="${looser.name}"]`);
+        // const winner_portrait = current_round_div.querySelector(`div[chara="${winner.name}"]`);
+        const winner_portraits = current_round_div.querySelectorAll(`div[chara="${winner.name}"]`);
+        // const looser_portrait = current_round_div.querySelector(`div[chara="${looser.name}"]`);
+        const looser_portraits = current_round_div.querySelectorAll(`div[chara="${looser.name}"]`);
 
-        winner_portrait.classList.add("green")
-        looser_portrait.classList.add("red")
-        looser_portrait.firstElementChild.classList.add("gray")
+        winner_portraits.forEach(el => {
+            el.classList.add("green");
+        });
+
+        looser_portraits.forEach(el => {
+            el.classList.add("red");
+            el.firstElementChild.classList.add("gray")
+        });
+
+        // winner_portrait.classList.add("green")
+        // looser_portrait.classList.add("red")
+        // looser_portrait.firstElementChild.classList.add("gray")
 
         // Start a new duel
         if (characters.length == 0) {
