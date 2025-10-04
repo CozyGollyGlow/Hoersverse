@@ -7,28 +7,28 @@
     <link id="stylesheet" rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <div id="characters">
-    </div>
     <div id="duel">
         <h1 id="main-title"> SMASH OR SMASH? </h1>
         <div id="duel-characters">
             <div class="chara-div">
                 <img id="pic1" class="duel-chara-pic" src="">
-                <button id="name1" class="duel-btn">NAME 1</button>
+                <button id="name1" class="duel-btn" onclick="selectCharacter('0')">NAME 1</button>
             </div>
             <span id="duel-divider">OR</span>
             <div class="chara-div">
                 <img id="pic2" class="duel-chara-pic" src="">
-                <button id="name2" class="duel-btn">NAME 2</button>
+                <button id="name2" class="duel-btn" onclick="selectCharacter('1')">NAME 2</button>
             </div>
         </div>
+    </div>
+    <div id="characters">
     </div>
 
 </body>
 <script>
     const chara_div = document.getElementById("characters")
     let characters = []; // Original array of all characters
-    let current_characters = []; // Characters currently choosen
+    let current_duel = []; // Characters currently choosen
 
     const name1 = document.getElementById("name1")
     const name2 = document.getElementById("name2")
@@ -53,30 +53,50 @@
     addCharacter("Charger", "assets/characters/charger.png")
     addCharacter("Redwood", "assets/characters/redwood.png")
 
-
-    start_duel()
+    startDuel()
 
     /////////////////////////////////////////////
 
     // Add a new character to the character list
     function addCharacter(name, pic){
-        const new_character_div = document.createElement('div');
-
-        const character_name = document.createElement('span');
-        character_name.innerHTML = name
-        new_character_div.classList.add("character");
-        new_character_div.appendChild(character_name);
-
-        chara_div.appendChild(new_character_div);
+        // const new_character_div = document.createElement('div');
+        //
+        // // const character_name = document.createElement('span');
+        // // character_name.innerHTML = name
+        // // new_character_div.classList.add("character");
+        // // new_character_div.appendChild(character_name);
+        //
+        // chara_div.appendChild(new_character_div);
 
         new_character = new Character(name, pic)
         characters.push(new_character)
+
+        addPortrait(new_character, chara_div)
+    }
+
+    // Add a small character portrait in a div
+    function addPortrait(chara, parent){
+        const portrait_div = document.createElement('div');
+        portrait_div.classList.add("chara-portrait-small")
+        portrait_div.setAttribute('chara', chara.name);
+
+        const portrait = document.createElement('img');
+        portrait.src = chara.pic;
+        portrait.classList.add("small-portrait");
+        portrait_div.appendChild(portrait);
+
+        parent.appendChild(portrait_div)
     }
 
     // Put two characters in for duel
-    function start_duel(){
+    function startDuel(){
         const chara1 = removeItem(characters, getRandomItem(characters))
         const chara2 = removeItem(characters, getRandomItem(characters))
+
+        current_duel.push(chara1)
+        current_duel.push(chara2)
+
+        console.log(current_duel)
 
         console.log(`Dueling ${chara1.name} with ${chara2.name}`);
 
@@ -85,6 +105,25 @@
 
         pic1.src = chara1.pic
         pic2.src = chara2.pic
+    }
+
+    // Select a character in the duel
+    function selectCharacter(idx) {
+        const other = (arr, index) => arr[index ^ 1];
+
+        const winner = current_duel[idx]
+        const looser = other(current_duel, idx)
+
+        // const char = current_duel[idx]
+        const winner_portrait = chara_div.querySelector(`div[chara="${winner.name}"]`);
+        const looser_portrait = chara_div.querySelector(`div[chara="${looser.name}"]`);
+
+        winner_portrait.classList.add("green")
+        looser_portrait.classList.add("red")
+        looser_portrait.firstElementChild.classList.add("gray")
+
+        console.log(winner_portrait)
+        console.log(looser_portrait)
     }
 
     // Remove item from an array, returning it

@@ -23,6 +23,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
 }
 
 .character {
@@ -65,4 +66,31 @@ body {
 
 .duel-btn {
     font-size: 25px;
+}
+
+.chara-portrait-small {
+    border: 2px solid white;
+    margin: 1px;
+    width: 50px;
+    height: 50px;
+}
+
+.small-portrait {
+    width: 50px;
+    height: 50px;
+}
+
+.gray {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.red {
+  /* filter: sepia(1) saturate(5) hue-rotate(-20deg); */
+    border: 2px solid red;
+}
+
+.green {
+    border: 2px solid lime;
+  /* filter: sepia(1) saturate(5) hue-rotate(90deg); */
 }
