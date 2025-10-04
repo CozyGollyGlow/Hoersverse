@@ -7,8 +7,9 @@
     <link id="stylesheet" rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+    <h1 id="main-title"> SMASH OR SMASH? </h1>
     <div id="duel">
-        <h1 id="main-title"> SMASH OR SMASH? </h1>
+
         <div id="duel-characters">
             <div class="chara-div">
                 <img id="pic1" class="duel-chara-pic" src="">
@@ -104,13 +105,15 @@
 
         const round_number = document.createElement('h1');
         round_number.innerHTML = `Round ${round}`;
-        rounds_parent.appendChild(round_number)
+        // rounds_parent.appendChild(round_number)
 
         const round_div = document.createElement('div');
         round_div.classList.add("round-div")
         round_div.setAttribute('round', round);
 
-        rounds_parent.appendChild(round_div)
+        rounds_parent.insertBefore(round_div, rounds_parent.firstChild);
+        rounds_parent.insertBefore(round_number, rounds_parent.firstChild);
+        // rounds_parent.appendChild(round_div)
 
         return round_div
     }
