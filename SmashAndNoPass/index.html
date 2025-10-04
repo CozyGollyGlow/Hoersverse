@@ -52,24 +52,44 @@
 
     current_round_div = startNewRound()
 
-    addCharacter("Concorde", "assets/characters/concorde.png")
-    addCharacter("Aurora", "assets/characters/aurora.png")
-    addCharacter("Rosetta", "assets/characters/rosetta.png")
-    addCharacter("Zambuko", "assets/characters/zambuko.png")
-    addCharacter("Wolfram", "assets/characters/wolfram.png")
-    addCharacter("Sequoia", "assets/characters/sequoia.png")
-    addCharacter("Charger", "assets/characters/charger.png")
-    addCharacter("Redwood", "assets/characters/redwood.png")
+    // CAREFUL, CHARACTER AMOUNT MUST BE A POWER OF 2 IN THE CURRENT CONFIGURATION
+    addCharacter("Atom Smasher", "assets/characters/atom.png");
+    addCharacter("Aurora", "assets/characters/aurora.png"); //2
 
-    addCharacter("Kolache", "assets/characters/kolache.png")
-    addCharacter("Atom Smasher", "assets/characters/atom.png")
-    addCharacter("Candy Chip", "assets/characters/candy.png")
-    addCharacter("Throttle Track", "assets/characters/throttle.png")
-    addCharacter("Kobal", "assets/characters/kobal.png")
-    addCharacter("Jump Cannon", "assets/characters/jump cannon.png")
-    addCharacter("Rainbow Code", "assets/characters/rainbow code.png")
-    addCharacter("Silent Spring", "assets/characters/silent spring.png")
+    addCharacter("Baba", "assets/characters/baba.png");
+    addCharacter("Brioche", "assets/characters/brioche.png"); //4
 
+    addCharacter("Candy Chip", "assets/characters/candy.png");
+    addCharacter("Charger", "assets/characters/charger.png");
+    addCharacter("Concorde", "assets/characters/concorde.png");
+    addCharacter("Crystal Clear", "assets/characters/crystal clear.png"); //8
+
+    addCharacter("Dusky Meadows", "assets/characters/dusky.png");
+    addCharacter("Earth Scorch", "assets/characters/earth scorch.png");
+    addCharacter("Father Corona", "assets/characters/father corona.png");
+    addCharacter("Harvest Ember", "assets/characters/harvest ember.png");
+    addCharacter("High Frontier", "assets/characters/high frontier.png");
+    addCharacter("Jump Cannon", "assets/characters/jump cannon.png");
+    addCharacter("Kobal", "assets/characters/kobal.png");
+    addCharacter("Kolache", "assets/characters/kolache.png"); //16
+
+    addCharacter("Rainbow Code", "assets/characters/rainbow code.png");
+    addCharacter("Redwood", "assets/characters/redwood.png");
+    addCharacter("Rosetta", "assets/characters/rosetta.png");
+    addCharacter("Seafire", "assets/characters/seafire.png");
+    addCharacter("Seahawk", "assets/characters/seahawk.png");
+    addCharacter("Sequoia", "assets/characters/sequoia.png");
+    addCharacter("Silent Spring", "assets/characters/silent spring.png");
+    addCharacter("Snowstorm", "assets/characters/snowstorm.png");
+
+    addCharacter("Soarin", "assets/characters/soarin.png");
+    addCharacter("Spitfire", "assets/characters/spitfire.png");
+    addCharacter("Supermarine", "assets/characters/supermarine.png");
+    addCharacter("Throttle Track", "assets/characters/throttle.png");
+    addCharacter("Ursid", "assets/characters/ursid.png");
+    addCharacter("Vega", "assets/characters/vega.png");
+    addCharacter("Wolfram", "assets/characters/wolfram.png");
+    addCharacter("Zambuko", "assets/characters/zambuko.png"); //32
 
     startDuel()
 
@@ -115,7 +135,6 @@
         round_div.appendChild(round_characters_div);
 
         rounds_parent.insertBefore(round_div, rounds_parent.firstChild);
-        // rounds_parent.insertBefore(round_number, rounds_parent.firstChild);
 
         return round_div
     }
@@ -155,9 +174,7 @@
 
         winner_characters.push(winner);
 
-        // const winner_portrait = current_round_div.querySelector(`div[chara="${winner.name}"]`);
         const winner_portraits = current_round_div.querySelectorAll(`div[chara="${winner.name}"]`);
-        // const looser_portrait = current_round_div.querySelector(`div[chara="${looser.name}"]`);
         const looser_portraits = current_round_div.querySelectorAll(`div[chara="${looser.name}"]`);
 
         winner_portraits.forEach(el => {
@@ -168,10 +185,6 @@
             el.classList.add("red");
             el.firstElementChild.classList.add("gray")
         });
-
-        // winner_portrait.classList.add("green")
-        // looser_portrait.classList.add("red")
-        // looser_portrait.firstElementChild.classList.add("gray")
 
         // Start a new duel
         if (characters.length == 0) {
@@ -188,6 +201,10 @@
         } else {
             startDuel()
         }
+
+        // #TODO: do something when there is only one character left
+        // >not open a new round
+        // >change the main space to show only one big portrait
     }
 
     // Remove item from an array, returning it

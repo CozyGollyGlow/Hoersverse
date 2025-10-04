@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
     margin: 0;
@@ -11,10 +12,8 @@ body {
     color: white;
 }
 
-#rounds {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+h1 {
+    margin: 5px;
 }
 
 #main-title {
@@ -23,18 +22,30 @@ body {
     font-size: 75px;
     font-weight: bold;
     font-style: italic;
+    margin: 25px;
 }
 
-.round-div {
+#rounds {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 75%;
+}
+
+.round-div {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .characters {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 #duel {
