@@ -49,6 +49,8 @@ h1 {
 }
 
 #duel {
+    background: rgba(0, 0, 0, 0.5);
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +74,6 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid white;
     padding: 5px;
 }
 
@@ -99,6 +100,7 @@ h1 {
 }
 
 .result-div {
+    background: rgba(0, 0, 0, 0.5);
     margin: 5px;
     padding: 5px;
     border: 2px solid white;
@@ -120,4 +122,13 @@ h1 {
 
 .hidden {
     display: none !important;
+}
+
+.fade-sides {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+
+  /* Optional: soft shadow or border for visibility */
+  /* border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); */
 }
