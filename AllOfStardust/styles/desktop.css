@@ -130,7 +130,3 @@ body {
   height: auto; /* Maintains the aspect ratio */
   display: block; /* Removes inline spacing below the image */
 }
-
-.hidden {
-  display: none !important;
-}

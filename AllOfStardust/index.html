@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All of Stardust</title>
     <link id="stylesheet" rel="stylesheet" href="styles/desktop.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="side-panel left">
@@ -32,9 +34,11 @@
     <div class="main-content">
         <div class="title-block"><img src="assets/stardust_logo.png"/></div>
         <p>A comic by CaptainHoers</p>
+
         <div id="stats" class="hidden">
-            WIP
+
         </div>
+
         <div id="pages">
             <!-- Page 1 -->
             <div id="page-1" class="content-block"><img src="assets/pages/stardust_page_1.jpg" loading="lazy" onclick="window.open(this.src, '_blank');" style="cursor: pointer;"/></div>
@@ -193,5 +197,40 @@
         }
     }
 
+    /*****************************/
+    // #TODO: make a function to process each amount
+    // #Should also make a basic class or structure to store pony name, appearance amount, and colors (and more if it's used in other graphs?)
+    // for now only the 20 first pages because I'm testing
+    const CONCORDE_AMOUNT = 117;
+    const AURORA_AMOUNT = 30;
+    const ROSETTA_AMOUNT = 16;
+    const ZAMBUKO_AMOUNT = 23;
+    const WOLFRAM_AMOUNT = 9;
+
+    add_pie_chart("Characters appearances (in the first 20 pages)", ["Concorde", "Aurora", "Rosetta", "Zambuko", "Wolfram"], [CONCORDE_AMOUNT, AURORA_AMOUNT, ROSETTA_AMOUNT, ZAMBUKO_AMOUNT, WOLFRAM_AMOUNT], ['#59b5c3', '#fe7330', '#c580d1', "#bdbdbd", "#d1dde7"])
+
+    // Add a pie chart
+    function add_pie_chart(title, labels, values, colors) {
+        const card = document.createElement('div');
+        card.classList.add("graph-card");
+        stats_div.appendChild(card);
+
+        const t = document.createElement('h2');
+        t.innerHTML = title;
+        card.appendChild(t);
+
+        const chart = document.createElement('canvas');
+        new Chart(chart, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: values,
+                    backgroundColor: colors
+                }]
+            }
+        });
+        card.appendChild(chart);
+    }
 </script>
 </html>
