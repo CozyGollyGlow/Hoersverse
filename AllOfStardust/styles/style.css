@@ -17,8 +17,11 @@ h2 {
   padding: 10px;
 }
 
-.graph-card canvas {
+.chart-wrapper {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.chart-wrapper canvas {
   margin: 10px;
-  max-width: 100%;
-  max-height: 100%;
 }

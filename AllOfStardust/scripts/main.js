@@ -38,6 +38,10 @@ function add_pie_chart(title, labels, values, colors) {
     t.innerHTML = title;
     card.appendChild(t);
 
+    const chart_wrapper = document.createElement('div');
+    chart_wrapper.classList.add("chart-wrapper");
+    card.appendChild(chart_wrapper);
+
     const chart = document.createElement('canvas');
     new Chart(chart, {
         type: 'pie',
@@ -68,5 +72,5 @@ function add_pie_chart(title, labels, values, colors) {
         }
     });
 
-    card.appendChild(chart);
+    chart_wrapper.appendChild(chart);
 }
