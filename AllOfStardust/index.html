@@ -36,7 +36,7 @@
         <div class="title-block"><img src="assets/stardust_logo.png"/></div>
         <p>A comic by CaptainHoers</p>
 
-        <div id="stats" class="hidden">
+        <div id="stats" class="inactive">
 
         </div>
 
@@ -189,12 +189,13 @@
 
     // Hide pages to show stats and vice versa
     function toggle_stats() {
-        if (stats_div.classList.contains("hidden")) {
-            pages_div.classList.add("hidden");
-            stats_div.classList.remove("hidden");
+        if (stats_div.classList.contains("inactive")) {
+            pages_div.classList.add("inactive");
+            stats_div.classList.remove("inactive");
         } else {
-            pages_div.classList.remove("hidden");
-            stats_div.classList.add("hidden");
+            
+            pages_div.classList.remove("inactive");
+            stats_div.classList.add("inactive");
         }
     }
 
