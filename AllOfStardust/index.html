@@ -7,6 +7,7 @@
     <link id="stylesheet" rel="stylesheet" href="styles/desktop.css">
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
 <body>
     <div class="side-panel left">
@@ -228,7 +229,20 @@
                     data: values,
                     backgroundColor: colors
                 }]
+            },
+            plugins: [ChartDataLabels],
+        options: {
+            plugins: {
+                datalabels: {
+                    formatter: (v, ctx) => {
+                        const sum = ctx.chart.data.datasets[0].data
+                            .reduce((a, b) => a + b, 0);
+                        return ((v / sum) * 100).toFixed(1) + '%';
+                    },
+                    color: '#fff'
+                }
             }
+        }
         });
         card.appendChild(chart);
     }
