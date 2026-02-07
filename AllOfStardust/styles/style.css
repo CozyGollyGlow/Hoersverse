@@ -17,6 +17,11 @@ h2 {
   padding: 10px;
 }
 
+.graph-card span {
+  font-style: italic;
+  font-size: 14px;
+}
+
 .chart-wrapper {
   height: 100%;
   aspect-ratio: 1 / 1;

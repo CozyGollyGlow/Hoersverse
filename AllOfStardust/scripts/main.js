@@ -16,20 +16,10 @@ function toggle_stats() {
     }
 }
 
-/*****************************/
-// #TODO: make a function to process each amount
-// #Should also make a basic class or structure to store pony name, appearance amount, and colors (and more if it's used in other graphs?)
-// for now only the 20 first pages because I'm testing
-const CONCORDE_AMOUNT = 117;
-const AURORA_AMOUNT = 30;
-const ROSETTA_AMOUNT = 16;
-const ZAMBUKO_AMOUNT = 23;
-const WOLFRAM_AMOUNT = 9;
-
-add_pie_chart("Characters appearances (in the first 20 pages)", ["Concorde", "Aurora", "Rosetta", "Zambuko", "Wolfram"], [CONCORDE_AMOUNT, AURORA_AMOUNT, ROSETTA_AMOUNT, ZAMBUKO_AMOUNT, WOLFRAM_AMOUNT], ['#59b5c3', '#fe7330', '#c580d1', "#bdbdbd", "#d1dde7"])
+add_pie_chart("Characters appearances", characters_array.names, characters_array.panel_counts, characters_array.colors, "Changeling shenanigans count twice!");
 
 // Add a pie chart
-function add_pie_chart(title, labels, values, colors) {
+function add_pie_chart(title, labels, values, colors, notes = "") {
     const card = document.createElement('div');
     card.classList.add("graph-card");
     stats_div.appendChild(card);
@@ -73,4 +63,10 @@ function add_pie_chart(title, labels, values, colors) {
     });
 
     chart_wrapper.appendChild(chart);
+
+    if(notes != ""){
+        const n = document.createElement('span');
+        n.innerHTML = notes;
+        card.appendChild(n);
+    }
 }
