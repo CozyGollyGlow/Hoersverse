@@ -21,7 +21,7 @@ body {
 }
 
 .main-content {
-  margin: 0 20px; /* Leave space for side panels */
+  margin: 0;
   padding: 0px;
   color: white;
   text-align: center;
