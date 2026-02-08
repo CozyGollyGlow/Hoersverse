@@ -6,15 +6,31 @@ h2 {
   display: none !important;
 }
 
+#stats {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+}
+
+.card {
+  overflow-wrap: break-word;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.info-card {
+  width: 100%;
+  font-size: 2vw;
+  align-content: center;
+  align-items: center;
+}
+
 .graph-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
   aspect-ratio: 16 / 9;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 15px;
-  padding: 10px;
 }
 
 .graph-card span {

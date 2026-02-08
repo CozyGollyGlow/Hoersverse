@@ -16,12 +16,23 @@ function toggle_stats() {
     }
 }
 
-add_pie_chart("Characters appearances", characters_array.names, characters_array.panel_counts, characters_array.colors, "Changeling shenanigans count twice!");
+add_pie_chart("Characters appearances", characters_array.names, characters_array.panel_counts, characters_array.colors, 8, "Changeling shenanigans count twice!");
+add_info_card("As of page 55, there are 434 panels in the whole comic!", 4);
+
+// Add info card
+function add_info_card(text, grid_span) {
+    const card = document.createElement('div');
+    card.classList.add("info-card", "card");
+    card.style.gridColumn = `span ${grid_span}`;
+    card.innerHTML = text;
+    stats_div.appendChild(card);
+}
 
 // Add a pie chart
-function add_pie_chart(title, labels, values, colors, notes = "") {
+function add_pie_chart(title, labels, values, colors, grid_span, notes = "") {
     const card = document.createElement('div');
-    card.classList.add("graph-card");
+    card.classList.add("graph-card", "card");
+    card.style.gridColumn = `span ${grid_span}`;
     stats_div.appendChild(card);
 
     const t = document.createElement('h2');
