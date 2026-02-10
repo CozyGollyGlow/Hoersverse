@@ -1,0 +1,68 @@
+const pages = {
+    list: {
+        1: { panel_amount: 8 },
+        2: { panel_amount: 7 },
+        3: { panel_amount: 9 },
+        4: { panel_amount: 10 },
+        5: { panel_amount: 9 },
+        6: { panel_amount: 8 },
+        7: { panel_amount: 9 },
+        8: { panel_amount: 4 },
+        9: { panel_amount: 4 },
+        10: { panel_amount: 9 },
+        11: { panel_amount: 10 },
+        12: { panel_amount: 8 },
+        13: { panel_amount: 8 },
+        14: { panel_amount: 9 },
+        15: { panel_amount: 8 },
+        16: { panel_amount: 11 },
+        17: { panel_amount: 9 },
+        18: { panel_amount: 7 },
+        19: { panel_amount: 5 },
+        20: { panel_amount: 9 },
+        21: { panel_amount: 8 },
+        22: { panel_amount: 3 },
+        23: { panel_amount: 8 },
+        24: { panel_amount: 14 },
+        25: { panel_amount: 1 },
+        26: { panel_amount: 9 },
+        27: { panel_amount: 8 },
+        28: { panel_amount: 9 },
+        29: { panel_amount: 8 },
+        30: { panel_amount: 12 },
+        31: { panel_amount: 7 },
+        32: { panel_amount: 7 },
+        33: { panel_amount: 9 },
+        34: { panel_amount: 8 },
+        35: { panel_amount: 9 },
+        36: { panel_amount: 7 },
+        37: { panel_amount: 15 },
+        38: { panel_amount: 1 },
+        39: { panel_amount: 9 },
+        40: { panel_amount: 8 },
+        41: { panel_amount: 8 },
+        42: { panel_amount: 8 },
+        43: { panel_amount: 6 },
+        44: { panel_amount: 11 },
+        45: { panel_amount: 7 },
+        46: { panel_amount: 11 },
+        47: { panel_amount: 6 },
+        48: { panel_amount: 9 },
+        49: { panel_amount: 7 },
+        50: { panel_amount: 9 },
+        51: { panel_amount: 7 },
+        52: { panel_amount: 6 },
+        53: { panel_amount: 11 },
+        54: { panel_amount: 7 },
+        55: { panel_amount: 7 }
+    },
+
+    get panel_amounts() {
+        return Object.values(this.list).map(p => p.panel_amount);
+    },
+
+    get labels() {
+        const n = Object.keys(this.list).length;
+        return Array.from({ length: n }, (_, i) => `Page ${i + 1}`);
+    }
+};

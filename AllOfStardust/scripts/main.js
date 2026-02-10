@@ -18,6 +18,7 @@ function toggle_stats() {
 
 add_pie_chart("Characters appearances", characters_array.names, characters_array.panel_counts, characters_array.colors, 8, "Changeling shenanigans count twice!");
 add_info_card("As of page 55, there are 434 panels in the whole comic!", 4);
+add_bar_chart("Pages", pages.labels, pages.panel_amounts, 12);
 
 // Add info card
 function add_info_card(text, grid_span) {
@@ -70,6 +71,37 @@ function add_pie_chart(title, labels, values, colors, grid_span, notes = "") {
                     color: '#fff'
                 }
             }
+        }
+    });
+
+    chart_wrapper.appendChild(chart);
+
+    if(notes != ""){
+        const n = document.createElement('span');
+        n.innerHTML = notes;
+        card.appendChild(n);
+    }
+}
+
+function add_bar_chart(title, labels, values, grid_span, notes = ""){
+    const card = document.createElement('div');
+    card.classList.add("graph-card", "card");
+    card.style.gridColumn = `span ${grid_span}`;
+    stats_div.appendChild(card);
+
+    const chart_wrapper = document.createElement('div');
+    chart_wrapper.classList.add("chart-wrapper");
+    card.appendChild(chart_wrapper);
+
+    const chart = document.createElement('canvas');
+    new Chart(chart, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: title,
+                data: values
+            }]
         }
     });
 
