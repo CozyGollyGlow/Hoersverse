@@ -17,8 +17,8 @@ function toggle_stats() {
 }
 
 add_pie_chart("Characters appearances", characters_array.names, characters_array.panel_counts, characters_array.colors, 8, "Changeling shenanigans count twice!");
-add_info_card("As of page 55, there are 434 panels in the whole comic!", 4);
-add_bar_chart("Pages", pages.labels, pages.panel_amounts, 12);
+add_info_card("As of page 57, there are 459 panels in the whole comic!", 4);
+add_bar_chart("Panels", pages.labels, pages.panel_amounts, 12);
 
 // Add info card
 function add_info_card(text, grid_span) {
