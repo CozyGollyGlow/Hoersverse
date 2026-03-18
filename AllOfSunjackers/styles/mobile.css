@@ -8,16 +8,7 @@ body {
 }
 
 .side-panel {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 0px;
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  display: none;
 }
 
 .side-panel.left {
@@ -29,7 +20,7 @@ body {
 }
 
 .main-content {
-  margin: 0 20px; /* Leave space for side panels */
+  margin: 0;
   padding: 0px;
   color: white;
   text-align: center;
@@ -37,13 +28,15 @@ body {
 
 .title-block {
   background: #010619;
+  margin: 20px 0;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden; /* Prevents any overflowing content */
 }
 
 .content-block {
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background: rgba(0, 0, 0, 0.5);
   margin: 5px 0;
   padding: 5px;
   border-radius: 8px;
