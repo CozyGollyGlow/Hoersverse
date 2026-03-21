@@ -1,7 +1,7 @@
 const concorde_data = {
     name: "Concorde",
     color: '#59b5c3',
-    panel_count: 295
+    panel_count: 298
 };
 
 const aurora_data = {
@@ -13,7 +13,7 @@ const aurora_data = {
 const rosetta_data = {
     name: "Rosetta",
     color: '#8d2bc0',
-    panel_count: 60
+    panel_count: 63
 };
 
 const zambuko_data = {

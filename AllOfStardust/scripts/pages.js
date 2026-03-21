@@ -56,7 +56,8 @@ const pages = {
         54: { panel_amount: 7 },
         55: { panel_amount: 7 },
         56: { panel_amount: 10 },
-        57: { panel_amount: 8 }
+        57: { panel_amount: 8 },
+        58: { panel_amount: 9 }
     },
 
     get panel_amounts() {
