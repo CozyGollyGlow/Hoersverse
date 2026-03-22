@@ -85,6 +85,9 @@
 
                 const img = document.createElement("img");
                 img.src = `../${file}`;
+                img.loading = "lazy";
+                img.decoding = "async";
+                img.alt = "";
                 container.appendChild(img);
             });
         });
