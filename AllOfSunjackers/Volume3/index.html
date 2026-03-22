@@ -61,7 +61,7 @@
     ////////////////////////////////////////////////
     // Load all pages from the pages folder
     load_pages();
-    const postsParent = document.querySelector("main-content");
+    const postsParent = document.querySelector(".main-content");
     function load_pages(){
         fetch("../assets/pages/vol3/images.json")
         .then(res => res.json())
