@@ -29,6 +29,16 @@ body {
   font-weight: bold;
 }
 
+.row-lifetime {
+  position: relative;
+  height: 20px;
+  border-radius: 5px;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: black;
+}
+
 .row-events {
   position: relative;
   height: 40px;

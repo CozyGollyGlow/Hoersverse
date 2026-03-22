@@ -24,16 +24,16 @@
 		    {
 		        name: "Spitfire",
 		        color: "#ffa500",
+		        lifetime: { start: 1982, label: "Born 13th November, 1982" },
 		        events: [
-		        	{ start: 1982, label: "Birth" },
 		            { start: 2008, end: 2014, label: "Captain of the Wonderbolt" }
 		        ]
 		    },
 		    {
 		        name: "Concorde",
 		        color: "#d1f0ff",
+		        lifetime: { start: 2017, label: "December 17th, 2017" },
 		        events: [
-		            { start: 2017, label: "Birth" },
 		            { start: 2029, label: "Gets their cutie mark" },
 		            { start: 2038, label: "Kwadube Observatory Visit" },
 		            { start: 2035, end: 2038.88, label: "University" },
@@ -44,6 +44,7 @@
 		    {
 		        name: "Aurora",
 		        color: "#ffe49d",
+		        lifetime: { start: 2015, label: "Birth date unknown (~2015 ?)" },
 		        events: [
 		            { start: 2044.12, end: 2064, label: "EASA Astronaut" }
 		        ]
@@ -51,6 +52,7 @@
 		    {
 		        name: "Rosetta",
 		        color: "#ce99e9",
+		        lifetime: { start: 2003, label: "Birth date unknown (~2003 ?)" },
 		        events: [
 		            { start: 2044.12, end: 2064, label: "EASA Astronaut" }
 		        ]
@@ -58,6 +60,7 @@
 		    {
 		        name: "Zambuko",
 		        color: "#d8d8d8",
+		        lifetime: { start: 2014, label: "Birth date unknown (~2014 ?)" },
 		        events: [
 		            { start: 2044.12, end: 2064, label: "EASA Astronaut" }
 		        ]
@@ -65,6 +68,7 @@
 		    {
 		        name: "Wolfram",
 		        color: "#9fbacd",
+		        lifetime: { start: 2005, label: "Birth date unknown (~2005 ?)" },
 		        events: [
 		            { start: 2044.12, end: 2064, label: "EASA Astronaut" }
 		        ]
@@ -72,28 +76,36 @@
 		    {
 		        name: "Atom Smasher",
 		        color: "#35c965",
+		        lifetime: { start: 2052, label: "Birth date estimated to 2052" },
 		        events: [
-		            { start: 2052, label: "Estimated birth" },
 		        ]
 		    },
 		    {
 		        name: "Rainbow Code",
 		        color: "#e4c993",
+		        lifetime: { start: 2041, label: "Birth date estimated to 2041" },
 		        events: [
-		            { start: 2041, label: "Estimated birth" },
 		        ]
 		    },
 		    {
 		        name: "Candy Chip",
 		        color: "#ffb9d6",
+		        lifetime: { start: 2052, label: "Birth date unknown" },
 		        events: [
-		            { start: 2052, label: "Estimated birth" },
 		        ]
 		    }
 		];
 
 		const container = document.getElementById("timeline");
 		const scale = 25; // pixel per time unit
+
+		const maxTime = Math.max(
+		    ...flows.flatMap(f =>
+		        f.events.map(e => e.end ?? e.start)
+		    )
+		);
+
+		container.style.width = ((maxTime - tlStart + 1) * scale) + "px";
 
 		flows.forEach(flow => {
 		    const row = document.createElement("div");
@@ -103,6 +115,23 @@
 		    rowName.className = "row-name";
 		    rowName.innerHTML = `${flow.name}`
 		    row.appendChild(rowName)
+
+		    if(flow.lifetime) {
+			    const rowLifetime = document.createElement("div");
+			    rowLifetime.className = "row-lifetime";
+
+			    const lifetimeX = (flow.lifetime.start - tlStart) * scale;
+			    rowLifetime.style.left = lifetimeX + "px";
+			    if(flow.lifetime.end){
+			    	rowLifetime.style.width = ((flow.lifetime.end - flow.lifetime.start) * scale) + "px";
+			    } else {
+			    	rowLifetime.style.width = ((maxTime - flow.lifetime.start) * scale) + "px";
+			    }
+
+			    rowLifetime.innerHTML = flow.lifetime.label;
+	            rowLifetime.style.background = flow.color;
+			    row.appendChild(rowLifetime)
+			}
 
 		    const rowEvents = document.createElement("div");
 		    rowEvents.className = "row-events";
@@ -139,13 +168,5 @@
 
 		    container.appendChild(row);
 		});
-
-		const maxTime = Math.max(
-		    ...flows.flatMap(f =>
-		        f.events.map(e => e.end ?? e.start)
-		    )
-		);
-
-		container.style.width = ((maxTime - tlStart + 5) * scale) + "px";
 	</script>
 </html>
