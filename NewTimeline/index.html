@@ -35,20 +35,22 @@
 		            { start: 2017, label: "Birth" },
 		            { start: 2038, label: "Kwadube Observatory Visit" },
 		            { start: 2035, end: 2038.88, label: "University" },
-		            { start: 2039, end: 2044, label: "EASA Astronaut Group 42" }
+		            { start: 2039, end: 2044, label: "EASA Astronaut Group 42 Training" },
+		            { start: 2044.12, end: 2064, label: "EASA Astronaut" },
+		            { start: 2045, label: "Launch of Stardust 21" }
 		        ]
-		    },
-		    {
-		        name: "Aurora",
-		        color: "#ffe49d",
-		        events: [
-		            { start: 5, end: 20, label: "Training" }
-		        ]
-		    }
+		    }//,
+		    // {
+		    //     name: "Aurora",
+		    //     color: "#ffe49d",
+		    //     events: [
+		    //         { start: 5, end: 20, label: "Training" }
+		    //     ]
+		    // }
 		];
 
 		const container = document.getElementById("timeline");
-		const scale = 30; // pixel per time unit
+		const scale = 25; // pixel per time unit
 
 		flows.forEach(flow => {
 		    const row = document.createElement("div");
@@ -94,5 +96,13 @@
 
 		    container.appendChild(row);
 		});
+
+		const maxTime = Math.max(
+		    ...flows.flatMap(f =>
+		        f.events.map(e => e.end ?? e.start)
+		    )
+		);
+
+		container.style.width = ((maxTime - tlStart + 5) * scale) + "px";
 	</script>
 </html>
