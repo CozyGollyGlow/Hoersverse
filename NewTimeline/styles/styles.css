@@ -1,0 +1,70 @@
+body {
+  height: 100vh;
+  background-image: url('../assets/gradient.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: system-ui, sans-serif;
+}
+
+#timeline {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 5px;
+  padding-bottom: 35px;
+}
+
+.row p {
+  margin: 5px;
+  font-weight: bold;
+}
+
+.row-events {
+  position: relative;
+  height: 50px;
+}
+
+.event {
+  color: black;
+  position: absolute;
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+}
+
+.event-point {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: red;
+}
+
+.event-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+  top: 115%;
+  transform: translate(-50%, -50%);
+}
+
+.event-dot-label {
+    position: absolute;
+    bottom: -18px;
+    left: -5px;
+    font-size: 14px;
+    white-space: nowrap;
+}

@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<head>
+	        <meta charset="utf-8">
+	        <title>Timeline</title>
+	        <link href="styles/styles.css" rel="stylesheet" type="text/css"/>
+	    </head>
+	</head>
+	<body>
+		<div id="timeline"></div>
+	</body>
+	<script>
+		const tlStart = 1980; // Start of the timeline (will be the offset of everything)
+		const flows = [
+		    {
+		        name: "World Events",
+		        color: "#808080",
+		        events: [
+		        	{ start: 2010, label: "Return of Princess Luna" },
+		            { start: 2036, label: "Twilight elected Prime Minister" }
+		        ]
+		    },
+		    {
+		        name: "Spitfire",
+		        color: "#ffa500",
+		        events: [
+		        	{ start: 1982, label: "Birth" },
+		            { start: 2008, end: 2014, label: "Captain of the Wonderbolt" }
+		        ]
+		    },
+		    {
+		        name: "Concorde",
+		        color: "#d1f0ff",
+		        events: [
+		            { start: 2017, label: "Birth" },
+		            { start: 2038, label: "Kwadube Observatory Visit" },
+		            { start: 2035, end: 2038.88, label: "University" },
+		            { start: 2039, end: 2044, label: "EASA Astronaut Group 42" }
+		        ]
+		    },
+		    {
+		        name: "Aurora",
+		        color: "#ffe49d",
+		        events: [
+		            { start: 5, end: 20, label: "Training" }
+		        ]
+		    }
+		];
+
+		const container = document.getElementById("timeline");
+		const scale = 30; // pixel per time unit
+
+		flows.forEach(flow => {
+		    const row = document.createElement("div");
+		    row.className = "row";
+
+		    const rowName = document.createElement("p");
+		    rowName.className = "row-name";
+		    rowName.innerHTML = `${flow.name}`
+		    row.appendChild(rowName)
+
+		    const rowEvents = document.createElement("div");
+		    rowEvents.className = "row-events";
+		    row.appendChild(rowEvents)
+
+		    flow.events.forEach(e => {
+		        const x = (e.start - tlStart) * scale;
+
+		        if (e.end !== undefined && e.end !== e.start) {
+		            // Event during in the time
+		            const eventDiv = document.createElement("div");
+		            eventDiv.className = "event";
+
+		            eventDiv.style.left = x + "px";
+		            eventDiv.style.width = ((e.end - e.start) * scale) + "px";
+		            eventDiv.style.background = flow.color;
+		            eventDiv.textContent = e.label;
+
+		            rowEvents.appendChild(eventDiv);
+		        } else {
+		        	// Punctual event
+		            const dot = document.createElement("div");
+					dot.className = "event-dot";
+					dot.style.left = x + "px";
+
+					const label = document.createElement("span");
+					label.className = "event-dot-label";
+					label.textContent = e.label;
+
+					dot.appendChild(label);
+					rowEvents.appendChild(dot);
+		        }
+		    });
+
+		    container.appendChild(row);
+		});
+	</script>
+</html>
