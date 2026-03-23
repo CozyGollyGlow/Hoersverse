@@ -61,7 +61,6 @@ body {
 
 .row {
   background-color: rgba(0, 0, 0, 0.25);
-  padding: 5px;
   padding-bottom: 35px;
   border-radius: 10px;
 }
@@ -96,13 +95,6 @@ body {
   align-items: center;
   text-align: center;
   font-size: 14px;
-}
-
-.event-point {
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background: red;
 }
 
 .event-dot {
