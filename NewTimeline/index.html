@@ -7,7 +7,9 @@
 	    </head>
 	</head>
 	<body>
-		<div id="timeline"></div>
+		<div id="timeline">
+			<div id="axis"></div>
+		</div>
 	</body>
 	<script>
 		const tlStart = 1980; // Start of the timeline (will be the offset of everything)
@@ -107,6 +109,19 @@
 		);
 
 		container.style.width = ((maxTime - tlStart + 1) * scale) + "px";
+
+		// Generate decades
+		const axis = document.getElementById("axis");
+		const decadeStep = 10; // 10 time units = decade
+
+		for (let t = 0; t <= maxTime; t += decadeStep) {
+		    const tick = document.createElement("div");
+		    tick.className = "tick";
+		    tick.style.left = (t * scale) + "px";
+		    tick.textContent = t + tlStart; // or "1900", etc.
+
+		    axis.appendChild(tick);
+		}
 
 		flows.forEach(flow => {
 		    const row = document.createElement("div");

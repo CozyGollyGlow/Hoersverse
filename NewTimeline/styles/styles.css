@@ -32,6 +32,33 @@ body {
 
 }
 
+#axis {
+    position: sticky;
+    top: 0;
+    height: 30px;
+    background: rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.tick {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: white;
+}
+
+.tick::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    width: 1px;
+    height: 10px;
+    background: white;
+    transform: translateX(-50%);
+}
+
 .row {
   background-color: rgba(0, 0, 0, 0.25);
   padding: 5px;
