@@ -114,7 +114,7 @@
 		const axis = document.getElementById("axis");
 		const decadeStep = 10; // 10 time units = decade
 
-		for (let t = 0; t <= maxTime; t += decadeStep) {
+		for (let t = 0; t <= maxTime - tlStart; t += decadeStep) {
 		    const tick = document.createElement("div");
 		    tick.className = "tick";
 		    tick.style.left = (t * scale) + "px";
