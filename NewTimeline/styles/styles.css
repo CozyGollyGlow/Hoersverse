@@ -103,7 +103,7 @@ body {
   height: 8px;
   background: red;
   border-radius: 50%;
-  top: 115%;
+  top: 125%;
   transform: translate(-50%, -50%);
 }
 
