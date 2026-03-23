@@ -15,6 +15,21 @@ body {
   gap: 10px;
   overflow-x: auto;
   overflow-y: hidden;
+
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent calc(var(--scale) - 1px),
+      rgba(255,255,255,0.08) var(--scale)
+    ),
+    repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent calc(var(--scale) * 5 - 1px),
+      rgba(255,255,255,0.2) calc(var(--scale) * 5)
+    );
+
 }
 
 .row {
