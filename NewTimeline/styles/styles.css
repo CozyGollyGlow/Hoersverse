@@ -108,9 +108,9 @@ body {
 }
 
 .event-dot-label {
-    position: absolute;
-    bottom: -18px;
-    left: -5px;
-    font-size: 14px;
-    white-space: nowrap;
+  position: absolute;
+  bottom: -18px;
+  font-size: 14px;
+  white-space: nowrap;
+  transform: translateX(-50%);
 }
