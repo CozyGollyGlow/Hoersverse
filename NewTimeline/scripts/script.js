@@ -31,6 +31,12 @@ flows.forEach(flow => {
     const rowName = document.createElement("p");
     rowName.className = "row-name";
     rowName.innerHTML = `${flow.name}`
+
+    // Clicking makes the parent row collapse
+    rowName.addEventListener("click", () => {
+        row.classList.toggle("collapsed");
+    });
+
     row.appendChild(rowName)
 
     if(flow.lifetime) {
@@ -50,9 +56,12 @@ flows.forEach(flow => {
 	    row.appendChild(rowLifetime)
 	}
 
-    const rowEvents = document.createElement("div");
+    const rowEvents = document.createElement("div"); // Durable events
+    const rowPoints = document.createElement("div"); // Punctual events
     rowEvents.className = "row-events";
+    rowPoints.className = "row-events";
     row.appendChild(rowEvents)
+    row.appendChild(rowPoints)
 
     flow.events.forEach(e => {
         const x = (e.start - tlStart) * scale;
@@ -79,7 +88,7 @@ flows.forEach(flow => {
 			label.textContent = e.label;
 
 			dot.appendChild(label);
-			rowEvents.appendChild(dot);
+			rowPoints.appendChild(dot);
         }
     });
 

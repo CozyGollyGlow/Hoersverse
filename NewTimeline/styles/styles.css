@@ -61,7 +61,6 @@ body {
 
 .row {
   background-color: rgba(0, 0, 0, 0.25);
-  padding-bottom: 35px;
   border-radius: 10px;
 }
 
@@ -78,11 +77,22 @@ body {
   margin-bottom: 5px;
   font-size: 14px;
   color: black;
+  max-height: 20px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 }
 
 .row-events {
   position: relative;
   height: 40px;
+  max-height: 200px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.row.collapsed .row-events,
+.row.collapsed .row-lifetime {
+    max-height: 0;
 }
 
 .event {
@@ -103,7 +113,7 @@ body {
   height: 8px;
   background: red;
   border-radius: 50%;
-  top: 125%;
+  top: 25%;
   transform: translate(-50%, -50%);
 }
 
@@ -114,3 +124,4 @@ body {
   white-space: nowrap;
   transform: translateX(-50%);
 }
+
