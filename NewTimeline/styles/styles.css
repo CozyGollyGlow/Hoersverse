@@ -1,42 +1,37 @@
 body {
-  height: 100vh;
-  background-image: url('../assets/gradient.png');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  font-family: system-ui, sans-serif;
+    height: 100vh;
+    background: url('../assets/gradient.png') center / cover fixed;
+    color: #fff;
+    font-family: system-ui, sans-serif;
 }
 
 #timeline {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow-x: auto;
-  overflow-y: hidden;
-
-  background-image:
-    repeating-linear-gradient(
-      to right,
-      transparent,
-      transparent calc(var(--scale) - 1px),
-      rgba(255,255,255,0.08) var(--scale)
-    ),
-    repeating-linear-gradient(
-      to right,
-      transparent,
-      transparent calc(var(--scale) * 5 - 1px),
-      rgba(255,255,255,0.2) calc(var(--scale) * 5)
-    );
-
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-image:
+        repeating-linear-gradient(
+            to right,
+            transparent,
+            transparent calc(var(--scale) - 1px),
+            rgba(255, 255, 255, 0.08) var(--scale)
+        ),
+        repeating-linear-gradient(
+            to right,
+            transparent,
+            transparent calc(var(--scale) * 5 - 1px),
+            rgba(255, 255, 255, 0.2) calc(var(--scale) * 5)
+        );
 }
 
 #axis {
     position: sticky;
     top: 0;
     height: 30px;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     z-index: 10;
 }
 
@@ -45,7 +40,7 @@ body {
     top: 0;
     transform: translateX(-50%);
     font-size: 12px;
-    color: white;
+    color: inherit;
 }
 
 .tick::before {
@@ -55,46 +50,44 @@ body {
     left: 50%;
     width: 1px;
     height: 10px;
-    background: white;
+    background: currentColor;
     transform: translateX(-50%);
 }
 
 .row {
-  background-color: rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 }
 
 .row p {
-  margin: 5px;
-  font-weight: bold;
-}
-
-.row-name {
+    margin: 5px;
+    font-weight: 700;
     cursor: pointer;
     user-select: none;
 }
 
+.row-lifetime,
+.row-events {
+    position: relative;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
 .row-lifetime {
-  position: relative;
-  height: 20px;
-  border-radius: 5px;
-  padding-left: 5px;
-  font-size: 14px;
-  color: black;
-  max-height: 20px;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
+    height: 20px;
+    max-height: 20px;
+    padding-left: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #000;
 }
 
 .row-events {
-  position: relative;
-  height: 40px;
-  max-height: 200px;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
+    height: 40px;
+    max-height: 200px;
 }
 
 .row.collapsed .row-events,
@@ -103,32 +96,31 @@ body {
 }
 
 .event {
-  color: black;
-  position: absolute;
-  height: 100%;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 14px;
+    position: absolute;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+    color: #000;
 }
 
 .event-dot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: red;
-  border-radius: 50%;
-  top: 25%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 25%;
+    width: 8px;
+    height: 8px;
+    background: red;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .event-dot-label {
-  position: absolute;
-  bottom: -18px;
-  font-size: 14px;
-  white-space: nowrap;
-  transform: translateX(-50%);
+    position: absolute;
+    bottom: -18px;
+    font-size: 14px;
+    white-space: nowrap;
+    transform: translateX(-50%);
 }
-
