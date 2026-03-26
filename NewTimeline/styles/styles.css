@@ -62,6 +62,9 @@ body {
 .row {
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .row p {
@@ -69,12 +72,16 @@ body {
   font-weight: bold;
 }
 
+.row-name {
+    cursor: pointer;
+    user-select: none;
+}
+
 .row-lifetime {
   position: relative;
   height: 20px;
   border-radius: 5px;
   padding-left: 5px;
-  margin-bottom: 5px;
   font-size: 14px;
   color: black;
   max-height: 20px;
