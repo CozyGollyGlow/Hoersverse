@@ -14,11 +14,13 @@ container.style.width = ((maxTime - tlStart + 1) * scale) + "px";
 // Generate decades
 const axis = document.getElementById("axis");
 const decadeStep = 10; // 10 time units = decade
+const offset = 15; // Offset of the whole timeline
+container.style.setProperty("--offset", offset + "px");
 
 for (let t = 0; t <= maxTime - tlStart; t += decadeStep) {
     const tick = document.createElement("div");
     tick.className = "tick";
-    tick.style.left = (t * scale) + "px";
+    tick.style.left = (t * scale + offset   ) + "px";
     tick.textContent = t + tlStart; // or "1900", etc.
 
     axis.appendChild(tick);
@@ -43,7 +45,7 @@ flows.forEach(flow => {
 	    const rowLifetime = document.createElement("div");
 	    rowLifetime.className = "row-lifetime";
 
-	    const lifetimeX = (flow.lifetime.start - tlStart) * scale;
+	    const lifetimeX = (flow.lifetime.start - tlStart) * scale + offset;
 	    rowLifetime.style.left = lifetimeX + "px";
 	    if(flow.lifetime.end){
 	    	rowLifetime.style.width = ((flow.lifetime.end - flow.lifetime.start) * scale) + "px";
@@ -64,7 +66,7 @@ flows.forEach(flow => {
     row.appendChild(rowPoints)
 
     flow.events.forEach(e => {
-        const x = (e.start - tlStart) * scale;
+        const x = (e.start - tlStart) * scale + offset;
 
         if (e.end !== undefined && e.end !== e.start) {
             // Event during in the time
