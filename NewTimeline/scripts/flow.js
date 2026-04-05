@@ -1,7 +1,10 @@
+// Filter inline functions to define timelines
+const getFlows = (...ids) => flows.filter(f => ids.includes(f.id));
+
 const flows = [
     {
-        id: "world",
-        name: "World Events",
+        id: "world_stardust",
+        name: "World Events (Stardust)",
         color: "#808080",
         events: [
             { start: 2010, label: "Return of Princess Luna" },
@@ -10,10 +13,19 @@ const flows = [
         ]
     },
     {
+        id: "world_sunjackers",
+        name: "World Events (Sunjackers)",
+        color: "#808080",
+        events: [
+            { start: 2010, label: "Return of Princess Luna" },
+            { start: 2036, label: "Twilight elected Prime Minister" }
+        ]
+    },
+    {
         id: "spitfire",
         name: "Spitfire",
         color: "#ffa500",
-        lifetime: { start: 1982, label: "Born 13th November, 1982" },
+        lifetime: { start: 1982, label: "Born November 13th, 1982" },
         events: [
             { start: 2008, end: 2014, label: "Captain of the Wonderbolt" }
         ]
@@ -22,13 +34,24 @@ const flows = [
         id: "concorde_stardust",
         name: "Concorde",
         color: "#d1f0ff",
-        lifetime: { start: 2017, label: "December 17th, 2017" },
+        lifetime: { start: 2017, label: "Born December 17th, 2017" },
         events: [
             { start: 2029, label: "Gets their cutie mark" },
             { start: 2038, label: "Kwadube Observatory Visit" },
             { start: 2035, end: 2038.88, label: "University" },
             { start: 2039, end: 2044, label: "EASA Astronaut Group 42 Training" },
             { start: 2044.12, end: 2064, label: "EASA Astronaut" }
+        ]
+    },
+    {
+        id: "concorde_sunjackers",
+        name: "Concorde",
+        color: "#d1f0ff",
+        lifetime: { start: 2017, label: "Born December 17th, 2017" },
+        events: [
+            { start: 2029, label: "Gets their cutie mark" },
+            { start: 2038, label: "Kwadube Observatory Visit" },
+            { start: 2035, end: 2038.88, label: "University" }
         ]
     },
     {
@@ -72,7 +95,7 @@ const flows = [
         id: "atom",
         name: "Atom Smasher",
         color: "#35c965",
-        lifetime: { start: 2052, label: "Birth date estimated to 2052" },
+        lifetime: { start: 2052, label: "Born in 2052" },
         events: [
         ]
     },
@@ -93,3 +116,6 @@ const flows = [
         ]
     }
 ];
+
+const tl_stardust = getFlows("world_stardust", "spitfire", "concorde_stardust", "aurora", "rosetta", "zambuko", "wolfram");
+const tl_sunjackers = getFlows("world_sunjackers", "spitfire", "concorde_sunjackers", "aurora", "atom", "code", "candy");
