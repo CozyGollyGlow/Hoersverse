@@ -106,9 +106,11 @@ function updateToggle() {
     if (toggle.checked) {
         left.classList.remove('active');
         right.classList.add('active');
+        document.body.classList.add('sunjackers');
     } else {
         left.classList.add('active');
         right.classList.remove('active');
+        document.body.classList.remove('sunjackers');
     }
 }
 

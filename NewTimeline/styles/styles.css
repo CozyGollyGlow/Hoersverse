@@ -1,9 +1,31 @@
 body {
     height: 100vh;
-    background: url('../assets/gradient.png') center / cover fixed;
+    position: relative;
     color: #fff;
     font-family: system-ui, sans-serif;
 }
+
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    transition: opacity 0.6s ease;
+}
+
+body::before {
+    background: url('../assets/gradient.png') center / cover;
+    opacity: 1;
+}
+
+body::after {
+    background: url('../assets/sunjackers.png') center / cover;
+    opacity: 0;
+}
+
+body.sunjackers::before { opacity: 0; }
+body.sunjackers::after  { opacity: 1; }
 
 h1 {
     background: rgba(0, 0, 0, 0.3);
@@ -165,8 +187,14 @@ h1 {
 
 #label-left  { color: #7ab8cc; }
 #label-right { color: #1a7a3e; }
-#label-left.active  { color: #d1f0ff; }
-#label-right.active { color: #35c965; }
+#label-left.active  { 
+    color: #d1f0ff;
+    font-weight: bold;
+}
+#label-right.active {
+    color: #35c965;
+    font-weight: bold;
+}
 
 .switch {
     position: relative;
