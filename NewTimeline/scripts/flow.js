@@ -98,14 +98,16 @@ const flows = [
         color: "#35c965",
         lifetime: { start: 2052, label: "Born in 2052" },
         events: [
+            { start: 2052.5, label: "Death of their mother" },
         ]
     },
     {
         id: "code",
         name: "Rainbow Code",
         color: "#e4c993",
-        lifetime: { start: 2041, label: "Birth date estimated to 2041" },
+        lifetime: { start: 2042, label: "Birth date estimated to 2042" },
         events: [
+            { start: 2052.5, label: "Death of their mother" },
         ]
     },
     {
@@ -115,8 +117,24 @@ const flows = [
         lifetime: { start: 2052, label: "Birth date unknown" },
         events: [
         ]
+    },
+    {
+        id: "throttle",
+        name: "Throttle Track",
+        color: "#58abfe",
+        lifetime: { start: 2052, label: "Birth date unknown" },
+        events: [
+        ]
+    },
+    {
+        id: "jump",
+        name: "Jump Cannon",
+        color: "#ffc062",
+        lifetime: { start: 2052, label: "Birth date unknown" },
+        events: [
+        ]
     }
 ];
 
 const tl_stardust = getFlows("world_stardust", "spitfire", "concorde_stardust", "aurora", "rosetta", "zambuko", "wolfram");
-const tl_sunjackers = getFlows("world_sunjackers", "spitfire", "concorde_sunjackers", "atom", "code", "candy");
+const tl_sunjackers = getFlows("world_sunjackers", "spitfire", "concorde_sunjackers", "atom", "code", "candy", "throttle", "jump");
