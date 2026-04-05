@@ -1,7 +1,7 @@
 const tlStart = 1980; // Start of the timeline (will be the offset of everything)
 const container = document.getElementById("timeline");
-const scale = 25; // pixel per time unit
-container.style.setProperty("--scale", scale + "px");
+let scale = 0; // pixel per time unit
+let current_timeline = tl_stardust;
 
 // Generate decades
 const axis = document.getElementById("axis");
@@ -9,11 +9,26 @@ const decadeStep = 10; // 10 time units = decade
 const offset = 15; // Offset of the whole timeline
 container.style.setProperty("--offset", offset + "px");
 
+const scaleSlider = document.getElementById("scale-slider");
+const scaleLabel = document.getElementById('scale-label');
+scaleSlider.addEventListener('input', () => setScale(scaleSlider.value));
+
+// Set the scale of the timeline
+function setScale(v){
+    scale = v;
+    scaleLabel.innerHTML = v;
+    container.style.setProperty("--scale", scale + "px");
+
+    displayTimeline(current_timeline)
+}
+
+setScale(25);
 // Displaying the Stardust timeline by default
 displayTimeline(tl_stardust)
 
 // Display all flows of the timeline in argument
 function displayTimeline(timeline){
+    current_timeline = timeline;
     const rows = container.querySelectorAll(".row");
     rows.forEach(row => row.remove());
 
@@ -25,6 +40,7 @@ function displayTimeline(timeline){
     ) + offset;
     container.style.width = ((maxTime - tlStart + 1) * scale) + "px";
 
+    axis.innerHTML = "";
     for (let t = 0; t <= maxTime - tlStart; t += decadeStep) {
         const tick = document.createElement("div");
         tick.className = "tick";
