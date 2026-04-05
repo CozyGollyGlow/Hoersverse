@@ -18,7 +18,8 @@ const flows = [
         color: "#808080",
         events: [
             { start: 2010, label: "Return of Princess Luna" },
-            { start: 2036, label: "Twilight elected Prime Minister" }
+            { start: 2037, label: "The Sundown" },
+            { start: 2077, label: "Start of the Sunjackers" }
         ]
     },
     {
@@ -118,4 +119,4 @@ const flows = [
 ];
 
 const tl_stardust = getFlows("world_stardust", "spitfire", "concorde_stardust", "aurora", "rosetta", "zambuko", "wolfram");
-const tl_sunjackers = getFlows("world_sunjackers", "spitfire", "concorde_sunjackers", "aurora", "atom", "code", "candy");
+const tl_sunjackers = getFlows("world_sunjackers", "spitfire", "concorde_sunjackers", "atom", "code", "candy");
