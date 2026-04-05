@@ -62,9 +62,7 @@ function renderLifetime(flow, row, maxTime) {
     bar.innerHTML = flow.lifetime.label;
     bar.style.background = flow.color;
     bar.style.left = (flow.lifetime.start - CONFIG.tlStart) * scale + CONFIG.offset + "px";
-    bar.style.width = (
-        (flow.lifetime.end ?? maxTime) - flow.lifetime.start
-    ) * scale + "px";
+    bar.style.width = ((flow.lifetime.end ?? maxTime) - flow.lifetime.start) * scale + "px";
 
     row.appendChild(bar);
 }
@@ -107,10 +105,10 @@ function renderFlow(flow, maxTime) {
 
     renderLifetime(flow, row, maxTime);
 
-    const durableContainer  = document.createElement("div");
-    const pointContainer    = document.createElement("div");
+    const durableContainer = document.createElement("div");
+    const pointContainer = document.createElement("div");
     durableContainer.className = "row-events";
-    pointContainer.className   = "row-events";
+    pointContainer.className = "row-events";
 
     flow.events.forEach(e => {
         if (e.end !== undefined && e.end !== e.start) {
@@ -141,12 +139,12 @@ function displayTimeline(timeline) {
 /*** Toggling between the two timelines ***/
 function setActiveTimeline(useSunjackers) {
     toggle.checked = useSunjackers;
-    labelLeft.classList.toggle("active",  !useSunjackers);
-    labelRight.classList.toggle("active",  useSunjackers);
+    labelLeft.classList.toggle("active", !useSunjackers);
+    labelRight.classList.toggle("active", useSunjackers);
     document.body.classList.toggle("sunjackers", useSunjackers);
     displayTimeline(useSunjackers ? tl_sunjackers : tl_stardust);
 }
 
 toggle.addEventListener("change", () => setActiveTimeline(toggle.checked));
-labelLeft.addEventListener("click",  () => setActiveTimeline(false));
+labelLeft.addEventListener("click", () => setActiveTimeline(false));
 labelRight.addEventListener("click", () => setActiveTimeline(true));
