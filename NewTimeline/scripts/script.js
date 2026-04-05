@@ -96,3 +96,22 @@ flows.forEach(flow => {
 
     container.appendChild(row);
 });
+
+// Handling the toggle between Stardust and Sunjackers
+const toggle = document.getElementById('toggle');
+const left = document.getElementById('label-left');
+const right = document.getElementById('label-right');
+
+function updateToggle() {
+    if (toggle.checked) {
+        left.classList.remove('active');
+        right.classList.add('active');
+    } else {
+        left.classList.add('active');
+        right.classList.remove('active');
+    }
+}
+
+toggle.addEventListener('change', updateToggle);
+left.addEventListener('click', () => { toggle.checked = false; update(); });
+right.addEventListener('click', () => { toggle.checked = true; update(); });

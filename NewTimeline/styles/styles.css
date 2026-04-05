@@ -7,6 +7,17 @@ body {
 
 h1 {
     background: rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0px;
+}
+
+#header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
 #timeline {
@@ -132,4 +143,66 @@ h1 {
     font-size: 14px;
     white-space: nowrap;
     transform: translateX(-50%);
+}
+
+.toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 5px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.label {
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.25s;
+    user-select: none;
+}
+
+#label-left  { color: #7ab8cc; }
+#label-right { color: #1a7a3e; }
+#label-left.active  { color: #d1f0ff; }
+#label-right.active { color: #35c965; }
+
+.switch {
+    position: relative;
+    width: 56px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.switch input { display: none; }
+
+.track {
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: #1a4a5a;
+    border: 0.5px solid #d1f0ff;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.thumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #d1f0ff;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+}
+
+input:checked ~ .track {
+    background: #0d3d1e;
+    border-color: #35c965;
+}
+
+input:checked ~ .thumb {
+    transform: translateX(28px);
+    background: #35c965;
 }
