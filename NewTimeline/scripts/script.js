@@ -73,10 +73,10 @@ function renderLifetime(flow, row, maxTime) {
 function renderDurableEvent(e, color) {
     const div = document.createElement("div");
     div.className = "event";
-    div.style.left       = (e.start - CONFIG.tlStart) * scale + CONFIG.offset + "px";
-    div.style.width      = (e.end - e.start) * scale + "px";
+    div.style.left = (e.start - CONFIG.tlStart) * scale + CONFIG.offset + "px";
+    div.style.width = (e.end - e.start) * scale + "px";
     div.style.background = color;
-    div.textContent      = e.label;
+    div.textContent = e.label;
     return div;
 }
 
