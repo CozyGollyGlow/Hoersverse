@@ -1,146 +1,152 @@
-const tlStart = 1980; // Start of the timeline (will be the offset of everything)
-const container = document.getElementById("timeline");
-let scale = 0; // pixel per time unit
-let current_timeline = tl_stardust;
+/*** Constants / config ***/
+const CONFIG = {
+    tlStart: 1980,
+    decadeStep: 10,
+    offset: 15,
+    defaultScale: 23,
+};
 
-// Generate decades
+/*** Variables ***/
+let scale = 0;
+let currentTimeline = tl_stardust;
+
+/*** DOM elements ***/
+const container = document.getElementById("timeline");
+container.style.setProperty("--offset", CONFIG.offset + "px");
+
 const axis = document.getElementById("axis");
-const decadeStep = 10; // 10 time units = decade
-const offset = 15; // Offset of the whole timeline
-container.style.setProperty("--offset", offset + "px");
 
 const scaleSlider = document.getElementById("scale-slider");
-const scaleLabel = document.getElementById('scale-label');
-scaleSlider.addEventListener('input', () => setScale(scaleSlider.value));
+const scaleLabel = document.getElementById("scale-label");
 
-// Set the scale of the timeline
-function setScale(v){
+const toggle = document.getElementById("toggle");
+const labelLeft = document.getElementById("label-left");
+const labelRight = document.getElementById("label-right");
+
+/*** Setting timeline scale ***/
+function setScale(v) {
     scale = v;
-    scaleLabel.innerHTML = v;
+    scaleLabel.textContent = v;
     container.style.setProperty("--scale", scale + "px");
-
-    displayTimeline(current_timeline)
+    displayTimeline(currentTimeline);
 }
 
-setScale(25);
-// Displaying the Stardust timeline by default
-displayTimeline(tl_stardust)
+scaleSlider.addEventListener("input", () => setScale(scaleSlider.value));
+setScale(CONFIG.defaultScale);
 
-// Display all flows of the timeline in argument
-function displayTimeline(timeline){
-    current_timeline = timeline;
-    const rows = container.querySelectorAll(".row");
-    rows.forEach(row => row.remove());
 
-    // Get maximum date in the timeline
-    const maxTime = Math.max(
-        ...timeline.flatMap(f =>
-            f.events.map(e => e.end ?? e.start)
-        )
-    ) + offset;
-    container.style.width = ((maxTime - tlStart + 1) * scale) + "px";
+/*** Timeline rendering ***/
+// Get the maximum date in the timeline among all flows
+function getMaxTime(timeline) {
+    return Math.max(...timeline.flatMap(f => f.events.map(e => e.end ?? e.start)));
+}
 
+// Render the axis at the top of the timeline
+function renderAxis(maxTime) {
     axis.innerHTML = "";
-    for (let t = 0; t <= maxTime - tlStart; t += decadeStep) {
+    for (let t = 0; t <= maxTime - CONFIG.tlStart; t += CONFIG.decadeStep) {
         const tick = document.createElement("div");
         tick.className = "tick";
-        tick.style.left = (t * scale + offset   ) + "px";
-        tick.textContent = t + tlStart; // or "1900", etc.
-
+        tick.style.left = (t * scale + CONFIG.offset) + "px";
+        tick.textContent = t + CONFIG.tlStart;
         axis.appendChild(tick);
     }
+}
 
-    timeline.forEach(flow => {
-        const row = document.createElement("div");
-        row.className = "row";
+// Render the lifetime bar of every flow
+function renderLifetime(flow, row, maxTime) {
+    if (!flow.lifetime) return;
 
-        const rowName = document.createElement("p");
-        rowName.className = "row-name";
-        rowName.innerHTML = `${flow.name}`
+    const bar = document.createElement("div");
+    bar.className = "row-lifetime";
+    bar.innerHTML = flow.lifetime.label;
+    bar.style.background = flow.color;
+    bar.style.left = (flow.lifetime.start - CONFIG.tlStart) * scale + CONFIG.offset + "px";
+    bar.style.width = (
+        (flow.lifetime.end ?? maxTime) - flow.lifetime.start
+    ) * scale + "px";
 
-        // Clicking makes the parent row collapse
-        rowName.addEventListener("click", () => {
-            row.classList.toggle("collapsed");
-        });
+    row.appendChild(bar);
+}
 
-        row.appendChild(rowName)
+// Render durable events (that have a start and an end)
+function renderDurableEvent(e, color) {
+    const div = document.createElement("div");
+    div.className = "event";
+    div.style.left       = (e.start - CONFIG.tlStart) * scale + CONFIG.offset + "px";
+    div.style.width      = (e.end - e.start) * scale + "px";
+    div.style.background = color;
+    div.textContent      = e.label;
+    return div;
+}
 
-        if(flow.lifetime) {
-            const rowLifetime = document.createElement("div");
-            rowLifetime.className = "row-lifetime";
+// Render punctual events
+function renderPointEvent(e) {
+    const dot = document.createElement("div");
+    dot.className = "event-dot";
+    dot.style.left = (e.start - CONFIG.tlStart) * scale + CONFIG.offset + "px";
 
-            const lifetimeX = (flow.lifetime.start - tlStart) * scale + offset;
-            rowLifetime.style.left = lifetimeX + "px";
-            if(flow.lifetime.end){
-                rowLifetime.style.width = ((flow.lifetime.end - flow.lifetime.start) * scale) + "px";
-            } else {
-                rowLifetime.style.width = ((maxTime - flow.lifetime.start) * scale) + "px";
-            }
+    const label = document.createElement("span");
+    label.className = "event-dot-label";
+    label.textContent = e.label;
 
-            rowLifetime.innerHTML = flow.lifetime.label;
-            rowLifetime.style.background = flow.color;
-            row.appendChild(rowLifetime)
+    dot.appendChild(label);
+    return dot;
+}
+
+// Render a single flow (its lifetime and its events)
+function renderFlow(flow, maxTime) {
+    const row = document.createElement("div");
+    row.className = "row";
+
+    const rowName = document.createElement("p");
+    rowName.className = "row-name";
+    rowName.innerHTML = flow.name;
+    rowName.addEventListener("click", () => row.classList.toggle("collapsed"));
+    row.appendChild(rowName);
+
+    renderLifetime(flow, row, maxTime);
+
+    const durableContainer  = document.createElement("div");
+    const pointContainer    = document.createElement("div");
+    durableContainer.className = "row-events";
+    pointContainer.className   = "row-events";
+
+    flow.events.forEach(e => {
+        if (e.end !== undefined && e.end !== e.start) {
+            durableContainer.appendChild(renderDurableEvent(e, flow.color));
+        } else {
+            pointContainer.appendChild(renderPointEvent(e));
         }
-
-        const rowEvents = document.createElement("div"); // Durable events
-        const rowPoints = document.createElement("div"); // Punctual events
-        rowEvents.className = "row-events";
-        rowPoints.className = "row-events";
-        row.appendChild(rowEvents)
-        row.appendChild(rowPoints)
-
-        flow.events.forEach(e => {
-            const x = (e.start - tlStart) * scale + offset;
-
-            if (e.end !== undefined && e.end !== e.start) {
-                // Event during in the time
-                const eventDiv = document.createElement("div");
-                eventDiv.className = "event";
-
-                eventDiv.style.left = x + "px";
-                eventDiv.style.width = ((e.end - e.start) * scale) + "px";
-                eventDiv.style.background = flow.color;
-                eventDiv.textContent = e.label;
-
-                rowEvents.appendChild(eventDiv);
-            } else {
-                // Punctual event
-                const dot = document.createElement("div");
-                dot.className = "event-dot";
-                dot.style.left = x + "px";
-
-                const label = document.createElement("span");
-                label.className = "event-dot-label";
-                label.textContent = e.label;
-
-                dot.appendChild(label);
-                rowPoints.appendChild(dot);
-            }
-        });
-
-        container.appendChild(row);
     });
+
+    row.appendChild(durableContainer);
+    row.appendChild(pointContainer);
+    return row;
 }
 
-// Handling the toggle between Stardust and Sunjackers
-const toggle = document.getElementById('toggle');
-const left = document.getElementById('label-left');
-const right = document.getElementById('label-right');
+// Display a whole timeline (rendering the axis and the flows)
+function displayTimeline(timeline) {
+    currentTimeline = timeline;
 
-function updateToggle() {
-    if (toggle.checked) { // Sunjackers
-        left.classList.remove('active');
-        right.classList.add('active');
-        document.body.classList.add('sunjackers');
-        displayTimeline(tl_sunjackers);
-    } else { // Stardust
-        left.classList.add('active');
-        right.classList.remove('active');
-        document.body.classList.remove('sunjackers');
-        displayTimeline(tl_stardust);
-    }
+    container.querySelectorAll(".row").forEach(r => r.remove());
+
+    const maxTime = getMaxTime(timeline) + CONFIG.offset;
+    container.style.width = ((maxTime - CONFIG.tlStart + 1) * scale) + "px";
+
+    renderAxis(maxTime);
+    timeline.forEach(flow => container.appendChild(renderFlow(flow, maxTime)));
 }
 
-toggle.addEventListener('change', updateToggle);
-left.addEventListener('click', () => { toggle.checked = false; update(); });
-right.addEventListener('click', () => { toggle.checked = true; update(); });
+/*** Toggling between the two timelines ***/
+function setActiveTimeline(useSunjackers) {
+    toggle.checked = useSunjackers;
+    labelLeft.classList.toggle("active",  !useSunjackers);
+    labelRight.classList.toggle("active",  useSunjackers);
+    document.body.classList.toggle("sunjackers", useSunjackers);
+    displayTimeline(useSunjackers ? tl_sunjackers : tl_stardust);
+}
+
+toggle.addEventListener("change", () => setActiveTimeline(toggle.checked));
+labelLeft.addEventListener("click",  () => setActiveTimeline(false));
+labelRight.addEventListener("click", () => setActiveTimeline(true));
