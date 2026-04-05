@@ -22,7 +22,7 @@ function displayTimeline(timeline){
         ...timeline.flatMap(f =>
             f.events.map(e => e.end ?? e.start)
         )
-    );
+    ) + offset;
     container.style.width = ((maxTime - tlStart + 1) * scale) + "px";
 
     for (let t = 0; t <= maxTime - tlStart; t += decadeStep) {
