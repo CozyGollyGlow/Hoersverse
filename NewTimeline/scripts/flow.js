@@ -1,5 +1,6 @@
 const flows = [
     {
+        id: "world",
         name: "World Events",
         color: "#808080",
         events: [
@@ -9,6 +10,7 @@ const flows = [
         ]
     },
     {
+        id: "spitfire",
         name: "Spitfire",
         color: "#ffa500",
         lifetime: { start: 1982, label: "Born 13th November, 1982" },
@@ -17,6 +19,7 @@ const flows = [
         ]
     },
     {
+        id: "concorde_stardust",
         name: "Concorde",
         color: "#d1f0ff",
         lifetime: { start: 2017, label: "December 17th, 2017" },
@@ -29,6 +32,7 @@ const flows = [
         ]
     },
     {
+        id: "aurora",
         name: "Aurora",
         color: "#ffe49d",
         lifetime: { start: 2015, label: "Birth date unknown (~2015 ?)" },
@@ -37,6 +41,7 @@ const flows = [
         ]
     },
     {
+        id: "rosetta",
         name: "Rosetta",
         color: "#ce99e9",
         lifetime: { start: 2003, label: "Birth date unknown (~2003 ?)" },
@@ -46,6 +51,7 @@ const flows = [
         ]
     },
     {
+        id: "zambuko",
         name: "Zambuko",
         color: "#d8d8d8",
         lifetime: { start: 2014, label: "Birth date unknown (~2014 ?)" },
@@ -54,6 +60,7 @@ const flows = [
         ]
     },
     {
+        id: "wolfram",
         name: "Wolfram",
         color: "#9fbacd",
         lifetime: { start: 2005, label: "Birth date unknown (~2005 ?)" },
@@ -62,6 +69,7 @@ const flows = [
         ]
     },
     {
+        id: "atom",
         name: "Atom Smasher",
         color: "#35c965",
         lifetime: { start: 2052, label: "Birth date estimated to 2052" },
@@ -69,6 +77,7 @@ const flows = [
         ]
     },
     {
+        id: "code",
         name: "Rainbow Code",
         color: "#e4c993",
         lifetime: { start: 2041, label: "Birth date estimated to 2041" },
@@ -76,6 +85,7 @@ const flows = [
         ]
     },
     {
+        id: "candy",
         name: "Candy Chip",
         color: "#ffb9d6",
         lifetime: { start: 2052, label: "Birth date unknown" },
