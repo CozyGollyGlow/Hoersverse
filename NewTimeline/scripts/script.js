@@ -14,7 +14,8 @@ displayTimeline(tl_stardust)
 
 // Display all flows of the timeline in argument
 function displayTimeline(timeline){
-    container.innerHTML = "";
+    const rows = container.querySelectorAll(".row");
+    rows.forEach(row => row.remove());
 
     // Get maximum date in the timeline
     const maxTime = Math.max(
