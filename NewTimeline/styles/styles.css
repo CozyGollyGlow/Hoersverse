@@ -5,6 +5,10 @@ body {
     font-family: system-ui, sans-serif;
 }
 
+h1 {
+    background: rgba(0, 0, 0, 0.3);
+}
+
 #timeline {
     position: relative;
     display: flex;
