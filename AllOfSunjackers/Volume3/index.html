@@ -28,6 +28,8 @@
         <div class="title-block"><img src="../assets/sunjackers_logo.png" /></div>
         <p>A comic by CaptainHoers</p>
         <h1>Volume 3</h1>
+        <div id="posts">
+        </div>
     </div>
 </body>
 <script>
@@ -59,7 +61,7 @@
     ////////////////////////////////////////////////
     // Load all pages from the pages folder
     load_pages();
-    const postsParent = document.querySelector(".main-content");
+    const postsParent = document.getElementById("posts");
     function load_pages(){
         fetch("../assets/pages/vol3/images.json")
         .then(res => res.json())
