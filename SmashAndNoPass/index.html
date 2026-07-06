@@ -92,13 +92,16 @@
     addCharacter("Wolfram", "assets/characters/wolfram.png");
     addCharacter("Zambuko", "assets/characters/zambuko.png"); //32
 
+    addCharacter("Sunjackers Concorde", "assets/characters/old_concorde.png"); 
+
     startDuel()
 
     /////////////////////////////////////////////
 
+    let last_winner
+
     // Add a new character to the character list
     function addCharacter(name, pic){
-
         new_character = new Character(name, pic)
         characters.push(new_character)
 
@@ -142,9 +145,18 @@
 
     // Put two characters in for duel
     function startDuel(){
-        const chara1 = removeItem(characters, getRandomItem(characters))
-        const chara2 = removeItem(characters, getRandomItem(characters))
+        let chara1
+        let chara2
 
+        // If only one characters left, use the last winning character for the next duel
+        if (characters.length == 1) {
+            console.log(`Only one character left, dueling with last winner: ${last_winner.name}`)
+            chara1 = removeItem(characters, getRandomItem(characters))
+            chara2 = last_winner
+        } else {
+            chara1 = removeItem(characters, getRandomItem(characters))
+            chara2 = removeItem(characters, getRandomItem(characters))
+        }
         current_duel.push(chara1)
         current_duel.push(chara2)
 
@@ -174,6 +186,7 @@
         const looser = removeItem(current_duel, current_duel[0]);
 
         winner_characters.push(winner);
+        last_winner = winner;
 
         const winner_portraits = current_round_div.querySelectorAll(`div[chara="${winner.name}"]`);
         const looser_portraits = current_round_div.querySelectorAll(`div[chara="${looser.name}"]`);
