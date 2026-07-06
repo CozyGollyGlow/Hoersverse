@@ -208,7 +208,9 @@
         const winner = removeItem(current_duel, current_duel[idx]);
         const looser = removeItem(current_duel, current_duel[0]);
 
-        winner_characters.push(winner);
+        if (!winner_characters.includes(winner)) {
+            winner_characters.push(winner);
+        }
         last_winner = winner;
 
         const winner_portraits = current_round_div.querySelectorAll(`div[chara="${winner.name}"]`);
