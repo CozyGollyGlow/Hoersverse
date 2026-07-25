@@ -1,0 +1,82 @@
+body {
+  /* text-align: center; */
+  font-family: Tahoma, Geneva, sans-serif;
+  height: 100vh;
+  background-image: url('background.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  margin: 0px;
+}
+
+.task-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: #3ea7d6;
+}
+
+.task-bar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 10px;
+  background: linear-gradient(to bottom, #5ac4f4, #3ea7d6);
+  z-index: -1;
+}
+
+.start-menu-btn {
+  color: white;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 25px;
+  height: 100%;
+  width: 10%;
+  border: 2px solid #1e701e;
+  border-left: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: linear-gradient(to bottom, #5aea5a, #239823);
+  position: relative;
+  z-index: 1;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+.start-menu-btn:hover {
+  background: linear-gradient(to bottom, #6af56a, #2db82d);
+}
+
+.start-menu-btn:active {
+  background: linear-gradient(to bottom, #239823, #1e701e);
+  border-color: #185a18;
+}
+
+.app-icon {
+    padding: 5px;
+    color: white;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    text-align: center;
+}
+
+.app-icon:hover {
+    background-color: rgba(10, 36, 106, 0.1);
+    border-radius: 4px;
+}
+
+.app-img {
+    height: 64px;
+    width: 64px;
+}
+
+.app-name {
+    font-size: 14px;
+    margin: 4px 0 0;
+    word-break: break-word;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
