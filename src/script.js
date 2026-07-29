@@ -11,9 +11,31 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-const windows = document.querySelectorAll(".os-window");
+function createOsWindow({ title = "Internet Marexplorer", url = "AllOfStardust/", left = 100, top = 100 } = {}) {
+    const windowElement = document.createElement("div");
+    windowElement.className = "os-window";
+    windowElement.style.position = "absolute";
+    windowElement.style.left = `${left}px`;
+    windowElement.style.top = `${top}px`;
 
-windows.forEach((windowElement) => { // Not calling this "window" because I think that's a base class
+    windowElement.innerHTML = `
+        <div class="title-bar">
+            <span>${title}</span>
+            <button class="close-button">×</button>
+        </div>
+        <div class="address-bar">Adress<input type="text" value="${url}"></input></div>
+        <div class="window-content">
+            <iframe src="${url}" style="width: 100%; height: 100%; border: 0;"></iframe>
+        </div>
+    `;
+
+    document.body.appendChild(windowElement);
+    initOsWindow(windowElement);
+
+    return windowElement;
+}
+
+function initOsWindow(windowElement) {
     const titleBar = windowElement.querySelector(".title-bar");
     const closeButton = windowElement.querySelector(".close-button");
 
@@ -22,7 +44,6 @@ windows.forEach((windowElement) => { // Not calling this "window" because I thin
     let offsetY = 0;
 
     titleBar.addEventListener("pointerdown", (event) => {
-        // Exclude close button from the dragging
         if (event.target.closest(".close-button")) return;
 
         isDragging = true;
@@ -34,7 +55,6 @@ windows.forEach((windowElement) => { // Not calling this "window" because I thin
 
         titleBar.setPointerCapture(event.pointerId);
 
-        // Bring the window to the front
         windowElement.style.zIndex = Date.now();
     });
 
@@ -56,4 +76,6 @@ windows.forEach((windowElement) => { // Not calling this "window" because I thin
     closeButton.addEventListener("click", () => {
         windowElement.remove();
     });
-});
+}
+
+createOsWindow({ title: "Internet Marexplorer", url: "AllOfStardust/", left: 200, top: 150 });
