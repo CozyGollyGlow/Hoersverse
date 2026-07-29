@@ -71,12 +71,24 @@
 
         <div class="task-bar">
             <button class="start-menu-btn">start</button>
+            <div class="bottom-left-panel">
+                <img class="tray-icon" src="src/sound.png">
+                <time id="clock"></time>
+            </div>
         </div>
     </body>
-    <style>
-        a.disabled {
-            pointer-events: none;
-            cursor: default;
+    <script>
+        const clock = document.querySelector("#clock");
+
+        function updateClock() {
+            clock.textContent = new Date().toLocaleTimeString([], {
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true
+            });
         }
-    </style>
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
 </html>

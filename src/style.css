@@ -9,12 +9,54 @@ body {
   overflow-x: hidden;
 }
 
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  padding: 20px;
+  min-height: calc(100vh - 60px);
+  align-content: start;
+  justify-content: center;
+}
+
+.app-icon {
+    padding: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.app-icon:hover {
+    background-color: rgba(10, 36, 106, 0.1);
+    border-radius: 4px;
+}
+
+.app-img {
+    height: 64px;
+    width: 64px;
+}
+
+.app-name {
+    font-size: 14px;
+    margin: 4px 0 0;
+    word-break: break-word;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+
 .task-bar {
   position: fixed;
   bottom: 0;
   width: 100%;
   height: 40px;
   background: #3ea7d6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .task-bar::before {
@@ -54,40 +96,23 @@ body {
   border-color: #185a18;
 }
 
-.app-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  grid-auto-rows: minmax(100px, auto);
-  padding: 20px;
-  min-height: calc(100vh - 60px);
-  align-content: start;
+.bottom-left-panel {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  text-shadow: 1px 1px 1px rgba(30, 124, 198, 1);
+  color: white;
+  height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  gap: 5px;
+  background:
+    linear-gradient(to right, #9be0ff, #6bc5ed) left / 4px 100% no-repeat,
+    #6bc5ed;
 }
 
-.app-icon {
-    padding: 5px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80px;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.app-icon:hover {
-    background-color: rgba(10, 36, 106, 0.1);
-    border-radius: 4px;
-}
-
-.app-img {
-    height: 64px;
-    width: 64px;
-}
-
-.app-name {
-    font-size: 14px;
-    margin: 4px 0 0;
-    word-break: break-word;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+.tray-icon {
+  width: 24px;
+  height: 24px;
 }
