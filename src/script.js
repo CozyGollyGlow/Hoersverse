@@ -36,9 +36,9 @@ function createOsWindow({ title = "Internet Marexplorer", url = "AllOfStardust/"
             <span>${title}</span>
             <button class="close-button">×</button>
         </div>
-        <div class="address-bar">Adress<input type="text" value="${url}"></input></div>
+        <div class="address-bar">Adress<input class="address-input" type="text" value="${url}"></input></div>
         <div class="window-content">
-            <iframe src="${url}" style="width: 100%; height: 100%; border: 0;"></iframe>
+            <iframe class="content-iframe" src="${url}" style="width: 100%; height: 100%; border: 0;"></iframe>
         </div>
     `;
 
@@ -49,8 +49,11 @@ function createOsWindow({ title = "Internet Marexplorer", url = "AllOfStardust/"
 }
 
 function initOsWindow(windowElement) {
+
     const titleBar = windowElement.querySelector(".title-bar");
     const closeButton = windowElement.querySelector(".close-button");
+    const addressInput = windowElement.querySelector(".address-input");
+    const iframe = windowElement.querySelector(".content-iframe");
 
     let isDragging = false;
     let offsetX = 0;
@@ -88,5 +91,9 @@ function initOsWindow(windowElement) {
 
     closeButton.addEventListener("click", () => {
         windowElement.remove();
+    });
+
+    iframe.addEventListener("load", () => {
+        addressInput.value = iframe.contentWindow.location.href;
     });
 }
