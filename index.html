@@ -76,19 +76,16 @@
                 <time id="clock"></time>
             </div>
         </div>
+
+        <div class="os-window">
+            <div class="title-bar">
+                <span>Window 1</span>
+                <button class="close-button">×</button>
+            </div>
+            <div class="window-content">
+                Window contents
+            </div>
+        </div>
     </body>
-    <script>
-        const clock = document.querySelector("#clock");
-
-        function updateClock() {
-            clock.textContent = new Date().toLocaleTimeString([], {
-                hour: "numeric",
-                minute: "2-digit",
-                hour12: true
-            });
-        }
-
-        updateClock();
-        setInterval(updateClock, 1000);
-    </script>
+    <script src="src/script.js"></script>
 </html>
