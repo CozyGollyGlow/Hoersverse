@@ -1,7 +1,11 @@
 /* APP ICON BEHAVIOR */
 document.querySelectorAll('.app-icon').forEach(icon => {
     icon.addEventListener('click', function() {
-        createOsWindow({ title: "Internet Marexplorer", url: icon.dataset.url, left: 100, top: 100 });
+        if(icon.dataset.internal) {
+            createOsWindow({ title: "Internet Marexplorer", url: icon.dataset.url, left: 100, top: 100 });
+        } else if (icon.dataset.external) {
+            window.open(icon.dataset.external, "_blank");
+        }
     });
 });
 
