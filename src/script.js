@@ -1,3 +1,11 @@
+/* APP ICON BEHAVIOR */
+document.querySelectorAll('.app-icon').forEach(icon => {
+    icon.addEventListener('click', function() {
+        createOsWindow({ title: "Internet Marexplorer", url: icon.dataset.url, left: 100, top: 100 });
+    });
+});
+
+/* SYSTEM CLOCK */
 const clock = document.querySelector("#clock");
 
 function updateClock() {
@@ -11,6 +19,7 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
+/* WINDOWS HANDLING */
 function createOsWindow({ title = "Internet Marexplorer", url = "AllOfStardust/", left = 100, top = 100 } = {}) {
     const windowElement = document.createElement("div");
     windowElement.className = "os-window";
@@ -77,5 +86,3 @@ function initOsWindow(windowElement) {
         windowElement.remove();
     });
 }
-
-createOsWindow({ title: "Internet Marexplorer", url: "AllOfStardust/", left: 200, top: 150 });
