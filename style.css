@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Eurostile&family=BankGothic&family=Digital+7&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('assets/gradient.png');
+    min-height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    padding: 2rem 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 1rem;
+}
+
+.grid-item {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+    height: 200px;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-size: cover;
+    background-position: center;
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0px 0px 15px rgba(0,0,0,1);
+    cursor: pointer;
+}
+
+.grid-item:hover {
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5) inset;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}

@@ -2,8 +2,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url('../assets/gradient.png'); /* Replace with your image */
-  background-attachment: fixed; /* Keeps the background fixed */
+  background-image: url('../assets/gradient.png');
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
 }
