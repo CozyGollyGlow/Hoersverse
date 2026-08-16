@@ -25,7 +25,7 @@ const zambuko_data = {
 const wolfram_data = {
     name: "Wolfram",
     color: '#9fbacd',
-    panel_count: 44
+    panel_count: 45
 };
 
 const sequoia_data = {
@@ -34,13 +34,35 @@ const sequoia_data = {
     panel_count: 24
 };
 
+const redwood_data = {
+    name: "Redwood",
+    color: '#a96e44',
+    panel_count: 19
+};
+
+const charger_data = {
+    name: "Charger",
+    color: '#e4dbb2',
+    panel_count: 33
+};
+
+const dusky_data = {
+    name: "Dusky",
+    color: '#daaec5',
+    panel_count: 26
+};
+
+
 const characters = [
     concorde_data,
     aurora_data,
     rosetta_data,
     zambuko_data,
     wolfram_data,
-    sequoia_data
+    sequoia_data,
+    redwood_data,
+    charger_data,
+    dusky_data
 ];
 
 const characters_array = {
