@@ -1,19 +1,19 @@
 const concorde_data = {
     name: "Concorde",
     color: '#59b5c3',
-    panel_count: 300
+    panel_count: 310
 };
 
 const aurora_data = {
     name: "Aurora",
     color: '#ffa356',
-    panel_count: 90
+    panel_count: 95
 };
 
 const rosetta_data = {
     name: "Rosetta",
     color: '#8d2bc0',
-    panel_count: 65
+    panel_count: 66
 };
 
 const zambuko_data = {
@@ -25,7 +25,7 @@ const zambuko_data = {
 const wolfram_data = {
     name: "Wolfram",
     color: '#9fbacd',
-    panel_count: 45
+    panel_count: 55
 };
 
 const sequoia_data = {
